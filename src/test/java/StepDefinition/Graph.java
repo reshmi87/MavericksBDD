@@ -1,0 +1,103 @@
+package StepDefinition;
+
+import static org.testng.Assert.assertEquals;
+import Commons.LoggerLoad;
+import PageFactory.Graph_pf;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+
+public class Graph extends Graph_pf{
+	
+	Graph_pf gpf=new Graph_pf();
+	String pagetitle;
+	boolean practicequestioncontent;
+	
+	@Given("The user is in the Home page after logged in")
+	public void the_user_is_in_the_home_page_after_logged_in() {
+		LoggerLoad.info("Launched browser from hooks !!");
+		LoggerLoad.info("Signing in..");
+		gpf=new Graph_pf();
+		gpf.homepage();
+		pagetitle = gpf.checkpageTitle();
+		assertEquals(pagetitle, "NumpyNinja", "Not on the Home page");
+	    LoggerLoad.info("Current page: "+pagetitle);
+		
+	}
+
+	@When("The user clicks the Getting Started button in Graph Pane or select Graph item from the drop down menu")
+	public void the_user_clicks_the_getting_started_button_in_graph_pane_or_select_graph_item_from_the_drop_down_menu() {
+		LoggerLoad.info("Moving to Graph page..");
+		pagetitle = gpf.Getstarted();
+	}
+
+	@Then("The user should be directed to Graph Page")
+	public void the_user_should_be_directed_to_graph_page() {
+		assertEquals(pagetitle, "Graph", "Not on the Graph page");
+		LoggerLoad.info("Current page: "+pagetitle);
+	    LoggerLoad.info("Hooks called to close the browser.....");
+	}
+
+	@Given("The user is in the Graph page after logged in")
+	public void the_user_is_in_the_graph_page_after_logged_in() {
+		LoggerLoad.info("Launched browser from hooks !!");
+		LoggerLoad.info("Signing in..");
+		gpf=new Graph_pf();
+		gpf.homepage();
+		LoggerLoad.info("Moving to Graph page..");
+		pagetitle = gpf.checkpageTitle();
+		assertEquals(pagetitle, "Graph", "Not on the Graph page");
+		LoggerLoad.info("Current page: "+pagetitle);
+	}
+
+	@When("The user clicks Graph button")
+	public void the_user_clicks_graph_button() {
+		pagetitle = gpf.Graph();
+	}
+
+	@When("The user clicks Try Here button")
+	public void the_user_clicks_try_here_button() {
+		pagetitle = gpf.Tryhere();
+	}
+
+	@Then("The user should be redirected to a page having an tryEditor with a Run button to test")
+	public void the_user_should_be_redirected_to_a_page_having_an_try_editor_with_a_run_button_to_test() {
+		assertEquals(pagetitle, "tryhere", "Not on the tryherepage");
+		LoggerLoad.info("Current page: "+pagetitle);
+	}
+
+	@When("The user clicks Graph Representations button")
+	public void the_user_clicks_graph_representations_button() {
+		pagetitle = gpf.GraphRepresentationsPage();
+	}
+
+	@Then("The user should be directed to Graph Representations Page")
+	public void the_user_should_be_directed_to_graph_representations_page() {
+		assertEquals(pagetitle, "graph ReprentationPage", "Not on the tryherepage");
+	    System.out.println("Current page: "+pagetitle);
+	}
+
+	@Given("The user is in the Graph Representations page after logged in")
+	public void the_user_is_in_the_graph_representations_page_after_logged_in() {
+		LoggerLoad.info("Launched browser from hooks !!");
+		LoggerLoad.info("Signing in..");
+		gpf=new Graph_pf();
+		gpf.homepage();
+		LoggerLoad.info("Moving to Tree page..");
+		pagetitle = gpf.Graph();
+		assertEquals(pagetitle, "graph ReprentationPage", "Not on the tryherepage");
+	    System.out.println("Current page: "+pagetitle);
+	}
+
+	@When("The user clicks Practise Question button")
+	public void the_user_clicks_practise_question_button() {
+	    gpf.PracticeQuestions();
+	}
+
+	@Then("The user should be directed to Practise Questions Page")
+	public void the_user_should_be_directed_to_practise_questions_page() {
+		assertEquals(pagetitle, "Practise Questions", "Not on the Practise Questionpage");
+	    System.out.println("Current page: "+pagetitle);
+	}
+
+}

@@ -1,0 +1,88 @@
+package PageFactory;
+
+import java.time.Duration;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import Commons.BrowserFactory;
+
+public class Graph_pf {
+
+	String pagetitle;
+    String url = "https://dsportalapp.herokuapp.com/home";
+    String uname = "milestonemavericks";
+    String pwd = "Welcome@123";
+    WebDriver driver = BrowserFactory.getdriverinstance();
+
+    @FindBy(linkText = "Sign in") WebElement signin;
+    @FindBy(name = "username") WebElement username;
+    @FindBy(name = "password") WebElement password;
+    @FindBy(xpath = "//input[@type='submit']") WebElement login;
+    
+    // Corrected XPath locators
+    @FindBy(xpath = "//h5[text()='Graph']/../a") WebElement getstarted; ///html/body/div[3]/div[7]/div/div/a
+    @FindBy(linkText = "Graph") WebElement graph;
+    @FindBy(linkText = "Try here>>>") WebElement tryEditor;
+    @FindBy(xpath = "//button[@type='button']") WebElement run;
+    @FindBy(linkText = "Graph Representations") WebElement graphRepresentationLink;
+    @FindBy(linkText = "Try here>>>") WebElement tryHereButton;    
+    @FindBy(xpath = "//button[@type='button']") WebElement runbutton;
+    @FindBy(xpath = "//pre[@id='output']") WebElement output;
+    @FindBy(linkText = "Practice Questions") WebElement practiceQuestions;
+
+    public void homepage() {
+
+		driver.get(url);
+	    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		driver.manage().window().maximize();
+		PageFactory.initElements(driver,this);
+		signin.click();
+		username.sendKeys(uname);
+		password.sendKeys(pwd);
+		login.click();
+	}
+	
+	public void closebrowser() {
+		 driver.quit();
+    }
+
+    // Method to navigate to Graph page
+    public String Getstarted() {
+        getstarted.click();
+        pagetitle = driver.getTitle();
+        return pagetitle;
+    }
+    
+    public String checkpageTitle() {
+		String currentpagetitle = driver.getTitle();
+			return currentpagetitle;
+	}
+    
+    public String Graph() {
+		graph.click();
+        pagetitle = driver.getTitle();
+        return pagetitle;
+	}
+    
+    public String Tryhere() {
+		tryEditor.click();
+        pagetitle = driver.getTitle();
+        return pagetitle;
+	}
+    
+    public String GraphRepresentationsPage() {
+    	graphRepresentationLink.click();
+        pagetitle = driver.getTitle();
+        return pagetitle;
+    }
+    
+    public void clickrun() {
+    	runbutton.click();
+    }
+
+	public void PracticeQuestions() {
+		practiceQuestions.click();
+        
+	}
+}
