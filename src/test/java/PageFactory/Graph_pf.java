@@ -9,19 +9,15 @@ import Commons.BrowserFactory;
 
 public class Graph_pf {
 
+	WebDriver driver = BrowserFactory.getdriverinstance();
 	String pagetitle;
-    String url = "https://dsportalapp.herokuapp.com/home";
-    String uname = "milestonemavericks";
-    String pwd = "Welcome@123";
-    WebDriver driver = BrowserFactory.getdriverinstance();
 
     @FindBy(linkText = "Sign in") WebElement signin;
     @FindBy(name = "username") WebElement username;
     @FindBy(name = "password") WebElement password;
     @FindBy(xpath = "//input[@type='submit']") WebElement login;
     
-    // Corrected XPath locators
-    @FindBy(xpath = "//h5[text()='Graph']/../a") WebElement getstarted; ///html/body/div[3]/div[7]/div/div/a
+    @FindBy(xpath = "//h5[text()='Graph']/../a") WebElement getstarted;
     @FindBy(linkText = "Graph") WebElement graph;
     @FindBy(linkText = "Try here>>>") WebElement tryEditor;
     @FindBy(xpath = "//button[@type='button']") WebElement run;
@@ -31,21 +27,14 @@ public class Graph_pf {
     @FindBy(xpath = "//pre[@id='output']") WebElement output;
     @FindBy(linkText = "Practice Questions") WebElement practiceQuestions;
 
-    public void homepage() {
+    public void homepage(String uname, String pwd) {
 
-		driver.get(url);
-	    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-		driver.manage().window().maximize();
 		PageFactory.initElements(driver,this);
 		signin.click();
 		username.sendKeys(uname);
 		password.sendKeys(pwd);
 		login.click();
 	}
-	
-	public void closebrowser() {
-		 driver.quit();
-    }
 
     // Method to navigate to Graph page
     public String Getstarted() {

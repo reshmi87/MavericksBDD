@@ -3,6 +3,8 @@ package PageFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
 import Commons.BrowserFactory;
 
 public class Login_pf {
@@ -14,14 +16,20 @@ public class Login_pf {
     WebDriver driver = BrowserFactory.getdriverinstance();
 
     // Web elements
+    @FindBy(linkText = "Sign in") WebElement Login;
     @FindBy(id = "username") WebElement usernameField;
     @FindBy(id = "password") WebElement passwordField;
-    @FindBy(id = "loginButton") WebElement loginButton;
-    @FindBy(id = "logoutButton") WebElement logoutButton;
-    @FindBy(id = "loginErrorMessage") WebElement loginErrorMessage;
-    @FindBy(id = "logoutMessage") WebElement logoutMessage;
+    @FindBy(xpath = "//input[@type='submit']") WebElement loginButton;
+    @FindBy(linkText = "Sign out") WebElement logoutButton;
+    @FindBy(xpath = "//div[contains(text(), 'You are logged in')]") WebElement loginMessage;
+    @FindBy(xpath = "//div[contains(text(), 'Logged out successfully')]") WebElement logoutMessage;
 
-    // Page methods
+    public String checkpageTitle() {
+		PageFactory.initElements(driver,this);
+		String pagetitle = driver.getTitle();
+		return pagetitle;
+    }
+    
     public void enterUsername(String username) {
         usernameField.sendKeys(username);
     }
@@ -38,20 +46,22 @@ public class Login_pf {
         logoutButton.click();
     }
 
-    public String getLoginErrorMessage() {
-        return loginErrorMessage.getText();
+    public String getLoginMessage() {
+    	String loginmsg = loginMessage.getText();
+        return loginmsg;
     }
 
     public String getLogoutMessage() {
-        return logoutMessage.getText();
+    	String logoutmsg = logoutMessage.getText();
+        return logoutmsg;
     }
 
-    public boolean isLoginButtonVisible() {
+    /*public boolean isLoginButton() {
         return loginButton.isDisplayed();
     }
 
-    public boolean isLogoutButtonVisible() {
+    public boolean isLogoutButton() {
         return logoutButton.isDisplayed();
-    }
+    } */
 }
 
