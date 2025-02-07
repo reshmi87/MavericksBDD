@@ -1,28 +1,32 @@
 package StepDefinition;
 
 import static org.testng.Assert.assertEquals;
+import java.io.IOException;
+import Commons.ConfigReader;
+import Commons.ExcelReader;
 import Commons.LoggerLoad;
 import PageFactory.Graph_pf;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class Graph extends Graph_pf{
+public class Graph {
 	
-	Graph_pf gpf=new Graph_pf();
+	private Graph_pf gpf;
 	String pagetitle;
-	boolean practicequestioncontent;
-	
-	@Given("The user is in the Home page after logged in")
-	public void the_user_is_in_the_home_page_after_logged_in() {
+	boolean practicequestion;
+	@Given("The user is in the Home page after logged in using Excel {int}")
+	public void the_user_is_in_the_home_page_after_logged_in_using_excel(Integer Rownum) throws IOException {
 		LoggerLoad.info("Launched browser from hooks !!");
 		LoggerLoad.info("Signing in..");
 		gpf=new Graph_pf();
-		gpf.homepage();
+		ExcelReader read = new ExcelReader();
+		String username = read.getusername(Rownum);
+		String password = read.getpassword(Rownum);	
+		gpf.homepage(username, password);
 		pagetitle = gpf.checkpageTitle();
 		assertEquals(pagetitle, "NumpyNinja", "Not on the Home page");
 	    LoggerLoad.info("Current page: "+pagetitle);
-		
 	}
 
 	@When("The user clicks the Getting Started button in Graph Pane or select Graph item from the drop down menu")
@@ -38,12 +42,15 @@ public class Graph extends Graph_pf{
 	    LoggerLoad.info("Hooks called to close the browser.....");
 	}
 
-	@Given("The user is in the Graph page after logged in")
-	public void the_user_is_in_the_graph_page_after_logged_in() {
+	@Given("The user is in the Graph page after logged in using Excel {int}")
+	public void the_user_is_in_the_graph_page_after_logged_in_using_excel(Integer Rownum) throws IOException {
 		LoggerLoad.info("Launched browser from hooks !!");
 		LoggerLoad.info("Signing in..");
 		gpf=new Graph_pf();
-		gpf.homepage();
+		ExcelReader read = new ExcelReader();
+		String username = read.getusername(Rownum);
+		String password = read.getpassword(Rownum);	
+		gpf.homepage(username, password);
 		LoggerLoad.info("Moving to Graph page..");
 		pagetitle = gpf.checkpageTitle();
 		assertEquals(pagetitle, "Graph", "Not on the Graph page");
@@ -52,7 +59,23 @@ public class Graph extends Graph_pf{
 
 	@When("The user clicks Graph button")
 	public void the_user_clicks_graph_button() {
+		LoggerLoad.info("Moving to Graph page..");
 		pagetitle = gpf.Graph();
+	}
+
+	@Given("The user is in the Graph page after logged in")
+	public void the_user_is_in_the_graph_page_after_logged_in() throws IOException {
+		LoggerLoad.info("Launched browser from hooks !!");
+		LoggerLoad.info("Signing in..");
+		gpf=new Graph_pf();
+		ConfigReader config = new ConfigReader();
+		String username = config.getusername();
+		String password = config.getpassword();
+		gpf.homepage(username, password);
+		LoggerLoad.info("Moving to Graph page..");
+		pagetitle = gpf.checkpageTitle();
+		assertEquals(pagetitle, "Graph", "Not on the Graph page");
+		LoggerLoad.info("Current page: "+pagetitle);
 	}
 
 	@When("The user clicks Try Here button")
@@ -78,12 +101,15 @@ public class Graph extends Graph_pf{
 	}
 
 	@Given("The user is in the Graph Representations page after logged in")
-	public void the_user_is_in_the_graph_representations_page_after_logged_in() {
+	public void the_user_is_in_the_graph_representations_page_after_logged_in() throws IOException {
 		LoggerLoad.info("Launched browser from hooks !!");
 		LoggerLoad.info("Signing in..");
 		gpf=new Graph_pf();
-		gpf.homepage();
-		LoggerLoad.info("Moving to Tree page..");
+		ConfigReader config = new ConfigReader();
+		String username = config.getusername();
+		String password = config.getpassword();
+		gpf.homepage(username, password);
+		LoggerLoad.info("Moving to Graph Representation page..");
 		pagetitle = gpf.Graph();
 		assertEquals(pagetitle, "graph ReprentationPage", "Not on the tryherepage");
 	    System.out.println("Current page: "+pagetitle);
@@ -91,7 +117,7 @@ public class Graph extends Graph_pf{
 
 	@When("The user clicks Practise Question button")
 	public void the_user_clicks_practise_question_button() {
-	    gpf.PracticeQuestions();
+		  gpf.PracticeQuestions();
 	}
 
 	@Then("The user should be directed to Practise Questions Page")
@@ -99,5 +125,4 @@ public class Graph extends Graph_pf{
 		assertEquals(pagetitle, "Practise Questions", "Not on the Practise Questionpage");
 	    System.out.println("Current page: "+pagetitle);
 	}
-
 }
