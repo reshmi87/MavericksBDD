@@ -24,9 +24,11 @@ public class Hooks {
 	private String appurl;
 	private Properties prop = new Properties();
 	
+
 	@Before
-	public void homepage() {
-		driver =bf.browsersetup();
+	public void homepage() throws Throwable {
+		String browser = bf.getBrowserType();
+		driver =bf.browsersetup(browser);
 		try {
 			prop.load(BrowserFactory.class.getClassLoader().getResourceAsStream("configuration.properties"));
 			appurl = prop.getProperty("appurl");
