@@ -153,24 +153,43 @@ public void tree_an_alert_window_with_the_error_message_is_displayed() {
 	LoggerLoad.info(alertmessage);
 }
 
-@When("Tree - User clicks on Run Button after entering a invalid python code.")
-public void tree_user_clicks_on_run_button_after_entering_a_invalid_python_code() {
-	tpf.entercode("abcd");
+@When("User clicks on Run Button after entering a invalid python code from Excel {int} for Tree Module")
+public void user_clicks_on_run_button_after_entering_a_invalid_python_code_from_excel_for_tree_module(Integer Rownum) throws IOException {
+	ExcelReader read = new ExcelReader();
+	String tryherecode = read.gettryherecode(Rownum);
+	System.out.println(tryherecode);
+	tpf.entercode(tryherecode);
+	tpf.clickrun();
+   
+}
+
+@Then("An Alert window with the error message from Excel {int} for Tree Module is displayed")
+public void an_alert_window_with_the_error_message_from_excel_for_tree_module_is_displayed(Integer Rownum) throws IOException {
+	String alertmessage = tpf.handlealert();
+	LoggerLoad.info("Alert Message received:"+alertmessage);
+	ExcelReader read = new ExcelReader();
+	String outputmessage = read.gettryheremessage(Rownum);	
+	assertEquals(alertmessage, outputmessage, "Incorrect output");
+}
+
+@When("User clicks on Run Button after entering a valid python code from Excel {int} for Tree Module")
+public void user_clicks_on_run_button_after_entering_a_valid_python_code_from_excel_for_tree_module(Integer Rownum) throws IOException {
+	ExcelReader read = new ExcelReader();
+	String tryherecode = read.gettryherecode(Rownum);
+	System.out.println(tryherecode);
+	tpf.entercode(tryherecode);
 	tpf.clickrun();
 }
 
-@When("Tree - User clicks on Run Button after entering a valid python code.")
-public void tree_user_clicks_on_run_button_after_entering_a_valid_python_code() throws InterruptedException {
-	tpf.entercode("print(\"hello\")");
-	tpf.clickrun();
+@Then("Correct output is displayed in the console from Excel {int} for Tree Module")
+public void correct_output_is_displayed_in_the_console_from_excel_for_tree_module(Integer Rownum) throws IOException {
+	ExcelReader read = new ExcelReader();
+	String outputmessage = read.gettryheremessage(Rownum);
+	String actualoutput=tpf.getoutput();
+	assertEquals(actualoutput, outputmessage, "Incorrect output");
+	LoggerLoad.info(actualoutput);
+   
 }
-
-@Then("Tree - Correct output is displayed in the console.")
-public void tree_correct_output_is_displayed_in_the_console() {
-	String output=tpf.getoutput();
-	LoggerLoad.info(output);
-	LoggerLoad.info("Hooks called to close the browser.....");
-	}
 
 @Given("User is in Tree page")
 public void user_is_in_tree_page() throws IOException {

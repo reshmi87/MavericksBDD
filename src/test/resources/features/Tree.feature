@@ -1,4 +1,4 @@
-@TestExecution
+@Tree
 Feature: Testing the Tree Module in dsAlgo Portal
 
 @positiveflow
@@ -12,7 +12,7 @@ Examples:
 |2|
 |3|
 
-@positiveflow
+@positiveflow @crossbrowser
 Scenario Outline: Verify that the user is able to navigate to the Overview of Trees page
 Given User is in the Tree page after logging in using credentials from Excel <Rownumber>
 When User clicks on the hyperlink Overview of Trees
@@ -40,16 +40,22 @@ When Tree - User clicks on Run Button without entering the code
 Then Tree - An Alert window with the error message is displayed.
 
 @negativeflow
-Scenario: Verify that the error message is displayed when user tries to Run with invalid python code in Try Editor from Overview of Trees page	
+Scenario Outline: Verify that the error message is displayed when user tries to Run with invalid python code in Try Editor from Overview of Trees page	
 Given Tree - User is in Try Editor page	from Overview of Trees page
-When Tree - User clicks on Run Button after entering a invalid python code.	
-Then Tree - An Alert window with the error message is displayed.
+When User clicks on Run Button after entering a invalid python code from Excel <Rownumber> for Tree Module
+Then An Alert window with the error message from Excel <Rownumber> for Tree Module is displayed
+Examples:
+|Rownumber|
+|2|
 
 @positiveflow
-Scenario: Verify the proper output is displayed when user tries to Run with the valid python code in Try Editor from Overview of Trees page	
+Scenario Outline: Verify the proper output is displayed when user tries to Run with the valid python code in Try Editor from Overview of Trees page
 Given Tree - User is in Try Editor page	from Overview of Trees page
-When Tree - User clicks on Run Button after entering a valid python code.	
-Then Tree - Correct output is displayed in the console.
+When User clicks on Run Button after entering a valid python code from Excel <Rownumber> for Tree Module	
+Then Correct output is displayed in the console from Excel <Rownumber> for Tree Module
+Examples:
+|Rownumber|
+|1|
 
 @positiveflow
 Scenario Outline: Tree - Verify that the user is able to navigate to the Terminologies page	
@@ -67,16 +73,22 @@ When Tree - User clicks on Run Button without entering the code
 Then Tree - An Alert window with the error message is displayed.
 
 @negativeflow
-Scenario: Tree - Verify that the error message is displayed when user tries to Run with invalid python code in Try Editor from Terminologies page	
+Scenario Outline: Tree - Verify that the error message is displayed when user tries to Run with invalid python code in Try Editor from Terminologies page	
 Given Tree - User is in Try Editor page from Terminologies page
-When Tree - User clicks on Run Button after entering a invalid python code.	
-Then Tree - An Alert window with the error message is displayed.
+When User clicks on Run Button after entering a invalid python code from Excel <Rownumber> for Tree Module
+Then An Alert window with the error message from Excel <Rownumber> for Tree Module is displayed
+Examples:
+|Rownumber|
+|2|
 
 @positiveflow
-Scenario: Tree - Verify the proper output is displayed when user tries to Run with the valid python code in Try Editor from Terminologies page	
+Scenario Outline: Tree - Verify the proper output is displayed when user tries to Run with the valid python code in Try Editor from Terminologies page	
 Given Tree - User is in Try Editor page from Terminologies page	
-When Tree - User clicks on Run Button after entering a valid python code.	
-Then Tree - Correct output is displayed in the console.
+When User clicks on Run Button after entering a valid python code from Excel <Rownumber> for Tree Module
+Then Correct output is displayed in the console from Excel <Rownumber> for Tree Module
+Examples:
+|Rownumber|
+|1|
 
 @positiveflow
 Scenario Outline: Verify that the user is able to navigate to the Types of Trees page	
@@ -94,16 +106,22 @@ When Tree - User clicks on Run Button without entering the code
 Then Tree - An Alert window with the error message is displayed.
 
 @negativeflow
-Scenario: Verify that the error message is displayed when user tries to Run with invalid python code in Try Editor from Types of Trees page	
+Scenario Outline: Verify that the error message is displayed when user tries to Run with invalid python code in Try Editor from Types of Trees page	
 Given Tree - User is in Try Editor page from Types of Trees page
-When Tree - User clicks on Run Button after entering a invalid python code.	
-Then Tree - An Alert window with the error message is displayed.
+When User clicks on Run Button after entering a invalid python code from Excel <Rownumber> for Tree Module
+Then An Alert window with the error message from Excel <Rownumber> for Tree Module is displayed
+Examples:
+|Rownumber|
+|2|
 
 @positiveflow
-Scenario: Verify the proper output is displayed when user tries to Run with the valid python code in Try Editor from Types of Trees page	
+Scenario Outline: Verify the proper output is displayed when user tries to Run with the valid python code in Try Editor from Types of Trees page	
 Given Tree - User is in Try Editor page from Types of Trees page
-When Tree - User clicks on Run Button after entering a valid python code.	
-Then Tree - Correct output is displayed in the console.
+When User clicks on Run Button after entering a valid python code from Excel <Rownumber> for Tree Module	
+Then Correct output is displayed in the console from Excel <Rownumber> for Tree Module
+Examples:
+|Rownumber|
+|1|
 
 @positiveflow
 Scenario Outline: Verify that the user is able to navigate to the Tree Traversals page	
@@ -121,16 +139,22 @@ When Tree - User clicks on Run Button without entering the code
 Then Tree - An Alert window with the error message is displayed.
 
 @negativeflow
-Scenario: Verify that the error message is displayed when user tries to Run with invalid python code in Try Editor from Tree Traversals page	
+Scenario Outline: Verify that the error message is displayed when user tries to Run with invalid python code in Try Editor from Tree Traversals page	
 Given Tree - User is in Try Editor page	from Tree Traversals page
-When Tree - User clicks on Run Button after entering a invalid python code.	
-Then Tree - An Alert window with the error message is displayed.
+When User clicks on Run Button after entering a invalid python code from Excel <Rownumber> for Tree Module
+Then An Alert window with the error message from Excel <Rownumber> for Tree Module is displayed
+Examples:
+|Rownumber|
+|2|
 
 @positiveflow
-Scenario: Verify the proper output is displayed when user tries to Run with the valid python code in Try Editor from Tree Traversals page	
+Scenario Outline: Verify the proper output is displayed when user tries to Run with the valid python code in Try Editor from Tree Traversals page	
 Given Tree - User is in Try Editor page	from Tree Traversals page
-When Tree - User clicks on Run Button after entering a valid python code.	
-Then Tree - Correct output is displayed in the console.
+When User clicks on Run Button after entering a valid python code from Excel <Rownumber> for Tree Module
+Then Correct output is displayed in the console from Excel <Rownumber> for Tree Module
+Examples:
+|Rownumber|
+|1|
 
 @positiveflow
 Scenario Outline: Tree - Verify that the user is able to navigate to the Traversals-Illustration page	
@@ -148,16 +172,22 @@ When Tree - User clicks on Run Button without entering the code
 Then Tree - An Alert window with the error message is displayed.
 
 @negativeflow
-Scenario: Tree - Verify that the error message is displayed when user tries to Run with invalid python code in Try Editor from Traversals-Illustration page	
+Scenario Outline: Tree - Verify that the error message is displayed when user tries to Run with invalid python code in Try Editor from Traversals-Illustration page	
 Given Tree - User is in Try Editor page	from Traversals-Illustration page
-When Tree - User clicks on Run Button after entering a invalid python code.	
-Then Tree - An Alert window with the error message is displayed.
+When User clicks on Run Button after entering a invalid python code from Excel <Rownumber> for Tree Module
+Then An Alert window with the error message from Excel <Rownumber> for Tree Module is displayed
+Examples:
+|Rownumber|
+|2|
 
 @positiveflow
-Scenario: Tree - Verify the proper output is displayed when user tries to Run with the valid python code in Try Editor from Traversals-Illustration page	
+Scenario Outline: Tree - Verify the proper output is displayed when user tries to Run with the valid python code in Try Editor from Traversals-Illustration page	
 Given Tree - User is in Try Editor page	from Traversals-Illustration page
-When Tree - User clicks on Run Button after entering a valid python code.	
-Then Tree - Correct output is displayed in the console.
+When User clicks on Run Button after entering a valid python code from Excel <Rownumber> for Tree Module
+Then Correct output is displayed in the console from Excel <Rownumber> for Tree Module
+Examples:
+|Rownumber|
+|1|
 
 @positiveflow
 Scenario Outline: Verify that the user is able to navigate to the Binary Trees page	
@@ -175,16 +205,22 @@ When Tree - User clicks on Run Button without entering the code
 Then Tree - An Alert window with the error message is displayed.
 
 @negativeflow
-Scenario: Verify that the error message is displayed when user tries to Run with invalid python code in Try Editor from Binary Trees page	
+Scenario Outline: Verify that the error message is displayed when user tries to Run with invalid python code in Try Editor from Binary Trees page	
 Given Tree - User is in Try Editor page	from Binary Trees page
-When Tree - User clicks on Run Button after entering a invalid python code.	
-Then Tree - An Alert window with the error message is displayed.
+When User clicks on Run Button after entering a invalid python code from Excel <Rownumber> for Tree Module
+Then An Alert window with the error message from Excel <Rownumber> for Tree Module is displayed
+Examples:
+|Rownumber|
+|2|
 
 @positiveflow
-Scenario: Verify the proper output is displayed when user tries to Run with the valid python code in Try Editor from Binary Trees page	
+Scenario Outline: Verify the proper output is displayed when user tries to Run with the valid python code in Try Editor from Binary Trees page	
 Given Tree - User is in Try Editor page	from Binary Trees page
-When Tree - User clicks on Run Button after entering a valid python code.	
-Then Tree - Correct output is displayed in the console.
+When User clicks on Run Button after entering a valid python code from Excel <Rownumber> for Tree Module
+Then Correct output is displayed in the console from Excel <Rownumber> for Tree Module
+Examples:
+|Rownumber|
+|1|
 
 @positiveflow
 Scenario Outline: Verify that the user is able to navigate to the Types of Binary Trees page	
@@ -202,16 +238,22 @@ When Tree - User clicks on Run Button without entering the code
 Then Tree - An Alert window with the error message is displayed.
 
 @negativeflow
-Scenario: Verify that the error message is displayed when user tries to Run with invalid python code in Try Editor from Types of Binary Trees page	
+Scenario Outline: Verify that the error message is displayed when user tries to Run with invalid python code in Try Editor from Types of Binary Trees page	
 Given Tree - User is in Try Editor page	from Types of Binary Trees page
-When Tree - User clicks on Run Button after entering a invalid python code.	
-Then Tree - An Alert window with the error message is displayed.
+When User clicks on Run Button after entering a invalid python code from Excel <Rownumber> for Tree Module
+Then An Alert window with the error message from Excel <Rownumber> for Tree Module is displayed
+Examples:
+|Rownumber|
+|2|
 
 @positiveflow
-Scenario: Verify the proper output is displayed when user tries to Run with the valid python code in Try Editor from Types of Binary Trees page	
+Scenario Outline: Verify the proper output is displayed when user tries to Run with the valid python code in Try Editor from Types of Binary Trees page	
 Given Tree - User is in Try Editor page	from Types of Binary Trees page
-When Tree - User clicks on Run Button after entering a valid python code.	
-Then Tree - Correct output is displayed in the console.
+When User clicks on Run Button after entering a valid python code from Excel <Rownumber> for Tree Module
+Then Correct output is displayed in the console from Excel <Rownumber> for Tree Module
+Examples:
+|Rownumber|
+|1|
 
 @positiveflow
 Scenario Outline: Tree - Verify that the user is able to navigate to the Implementation in Python page	
@@ -229,16 +271,22 @@ When Tree - User clicks on Run Button without entering the code
 Then Tree - An Alert window with the error message is displayed.
 
 @negativeflow
-Scenario: Tree - Verify that the error message is displayed when user tries to Run with invalid python code in Try Editor from Implementation in Python page	
+Scenario Outline: Tree - Verify that the error message is displayed when user tries to Run with invalid python code in Try Editor from Implementation in Python page	
 Given Tree - User is in Try Editor page	from Implementation in Python page
-When Tree - User clicks on Run Button after entering a invalid python code.	
-Then Tree - An Alert window with the error message is displayed.
+When User clicks on Run Button after entering a invalid python code from Excel <Rownumber> for Tree Module
+Then An Alert window with the error message from Excel <Rownumber> for Tree Module is displayed
+Examples:
+|Rownumber|
+|2|
 
 @positiveflow
-Scenario: Tree - Verify the proper output is displayed when user tries to Run with the valid python code in Try Editor from Implementation in Python page	
+Scenario Outline: Tree - Verify the proper output is displayed when user tries to Run with the valid python code in Try Editor from Implementation in Python page	
 Given Tree - User is in Try Editor page	from Implementation in Python page
-When Tree - User clicks on Run Button after entering a valid python code.	
-Then Tree - Correct output is displayed in the console.
+When User clicks on Run Button after entering a valid python code from Excel <Rownumber> for Tree Module
+Then Correct output is displayed in the console from Excel <Rownumber> for Tree Module
+Examples:
+|Rownumber|
+|1|
 
 @positiveflow
 Scenario Outline: Verify that the user is able to navigate to the Binary Tree Traversals page	
@@ -256,16 +304,22 @@ When Tree - User clicks on Run Button without entering the code
 Then Tree - An Alert window with the error message is displayed.
 
 @negativeflow
-Scenario: Verify that the error message is displayed when user tries to Run with invalid python code in Try Editor from Binary Tree Traversals page	
+Scenario Outline: Verify that the error message is displayed when user tries to Run with invalid python code in Try Editor from Binary Tree Traversals page	
 Given Tree - User is in Try Editor page	from Binary Tree Traversals page
-When Tree - User clicks on Run Button after entering a invalid python code.	
-Then Tree - An Alert window with the error message is displayed.
+When User clicks on Run Button after entering a invalid python code from Excel <Rownumber> for Tree Module
+Then An Alert window with the error message from Excel <Rownumber> for Tree Module is displayed
+Examples:
+|Rownumber|
+|2|
 
 @positiveflow
-Scenario: Verify the proper output is displayed when user tries to Run with the valid python code in Try Editor from Binary Tree Traversals page	
+Scenario Outline: Verify the proper output is displayed when user tries to Run with the valid python code in Try Editor from Binary Tree Traversals page	
 Given Tree - User is in Try Editor page	from Binary Tree Traversals page
-When Tree - User clicks on Run Button after entering a valid python code.	
-Then Tree - Correct output is displayed in the console.
+When User clicks on Run Button after entering a valid python code from Excel <Rownumber> for Tree Module
+Then Correct output is displayed in the console from Excel <Rownumber> for Tree Module
+Examples:
+|Rownumber|
+|1|
 
 @positiveflow
 Scenario Outline: Verify that the user is able to navigate to the Implementation of Binary Trees page	
@@ -283,16 +337,22 @@ When Tree - User clicks on Run Button without entering the code
 Then Tree - An Alert window with the error message is displayed.
 
 @negativeflow
-Scenario: Verify that the error message is displayed when user tries to Run with invalid python code in Try Editor from Implementation of Binary Trees page	
+Scenario Outline: Verify that the error message is displayed when user tries to Run with invalid python code in Try Editor from Implementation of Binary Trees page	
 Given Tree - User is in Try Editor page	from Implementation of Binary Trees page
-When Tree - User clicks on Run Button after entering a invalid python code.	
-Then Tree - An Alert window with the error message is displayed.
+When User clicks on Run Button after entering a invalid python code from Excel <Rownumber> for Tree Module
+Then An Alert window with the error message from Excel <Rownumber> for Tree Module is displayed
+Examples:
+|Rownumber|
+|2|
 
 @positiveflow
-Scenario: Verify the proper output is displayed when user tries to Run with the valid python code in Try Editor from Implementation of Binary Trees page	
+Scenario Outline: Verify the proper output is displayed when user tries to Run with the valid python code in Try Editor from Implementation of Binary Trees page	
 Given Tree - User is in Try Editor page	from Implementation of Binary Trees page
-When Tree - User clicks on Run Button after entering a valid python code.	
-Then Tree - Correct output is displayed in the console.
+When User clicks on Run Button after entering a valid python code from Excel <Rownumber> for Tree Module
+Then Correct output is displayed in the console from Excel <Rownumber> for Tree Module
+Examples:
+|Rownumber|
+|1|
 
 @positiveflow
 Scenario Outline: Verify that the user is able to navigate to the Applications of Binary trees page	
@@ -310,16 +370,22 @@ When Tree - User clicks on Run Button without entering the code
 Then Tree - An Alert window with the error message is displayed.
 
 @negativeflow
-Scenario: Verify that the error message is displayed when user tries to Run with invalid python code in Try Editor from Applications of Binary trees page	
+Scenario Outline: Verify that the error message is displayed when user tries to Run with invalid python code in Try Editor from Applications of Binary trees page	
 Given Tree - User is in Try Editor page	from Applications of Binary trees page
-When Tree - User clicks on Run Button after entering a invalid python code.	
-Then Tree - An Alert window with the error message is displayed.
+When User clicks on Run Button after entering a invalid python code from Excel <Rownumber> for Tree Module
+Then An Alert window with the error message from Excel <Rownumber> for Tree Module is displayed
+Examples:
+|Rownumber|
+|2|
 
 @positiveflow
-Scenario: Verify the proper output is displayed when user tries to Run with the valid python code in Try Editor from Applications of Binary trees page	
+Scenario Outline: Verify the proper output is displayed when user tries to Run with the valid python code in Try Editor from Applications of Binary trees page	
 Given Tree - User is in Try Editor page	from Applications of Binary trees page
-When Tree - User clicks on Run Button after entering a valid python code.	
-Then Tree - Correct output is displayed in the console.
+When User clicks on Run Button after entering a valid python code from Excel <Rownumber> for Tree Module
+Then Correct output is displayed in the console from Excel <Rownumber> for Tree Module
+Examples:
+|Rownumber|
+|1|
 
 @positiveflow
 Scenario Outline: Verify that the user is able to navigate to the Binary Search Trees page	
@@ -337,16 +403,22 @@ When Tree - User clicks on Run Button without entering the code
 Then Tree - An Alert window with the error message is displayed.
 
 @negativeflow
-Scenario: Verify that the error message is displayed when user tries to Run with invalid python code in Try Editor from Binary Search Trees page	
+Scenario Outline: Verify that the error message is displayed when user tries to Run with invalid python code in Try Editor from Binary Search Trees page	
 Given Tree - User is in Try Editor page	Binary Search Trees page
-When Tree - User clicks on Run Button after entering a invalid python code.	
-Then Tree - An Alert window with the error message is displayed.
+When User clicks on Run Button after entering a invalid python code from Excel <Rownumber> for Tree Module
+Then An Alert window with the error message from Excel <Rownumber> for Tree Module is displayed
+Examples:
+|Rownumber|
+|2|
 
 @positiveflow
-Scenario: Verify the proper output is displayed when user tries to Run with the valid python code in Try Editor from Binary Search Trees page	
+Scenario Outline: Verify the proper output is displayed when user tries to Run with the valid python code in Try Editor from Binary Search Trees page	
 Given Tree - User is in Try Editor page	Binary Search Trees page
-When Tree - User clicks on Run Button after entering a valid python code.	
-Then Tree - Correct output is displayed in the console.
+When User clicks on Run Button after entering a valid python code from Excel <Rownumber> for Tree Module
+Then Correct output is displayed in the console from Excel <Rownumber> for Tree Module
+Examples:
+|Rownumber|
+|1|
 
 @positiveflow
 Scenario Outline: Tree - Verify that the user is able to navigate to the Implementation Of BST page	
@@ -364,13 +436,19 @@ When Tree - User clicks on Run Button without entering the code
 Then Tree - An Alert window with the error message is displayed.
 
 @negativeflow
-Scenario: Tree - Verify that the error message is displayed when user tries to Run with invalid python code in Try Editor from Implementation Of BST page	
+Scenario Outline: Tree - Verify that the error message is displayed when user tries to Run with invalid python code in Try Editor from Implementation Of BST page	
 Given Tree - User is in Try Editor page	from Implementation Of BST page
-When Tree - User clicks on Run Button after entering a invalid python code.	
-Then Tree - An Alert window with the error message is displayed.
+When User clicks on Run Button after entering a invalid python code from Excel <Rownumber> for Tree Module
+Then An Alert window with the error message from Excel <Rownumber> for Tree Module is displayed
+Examples:
+|Rownumber|
+|2|
 
 @positiveflow
-Scenario: Tree - Verify the proper output is displayed when user tries to Run with the valid python code in Try Editor from Implementation Of BST page	
+Scenario Outline: Tree - Verify the proper output is displayed when user tries to Run with the valid python code in Try Editor from Implementation Of BST page	
 Given Tree - User is in Try Editor page	from Implementation Of BST page
-When Tree - User clicks on Run Button after entering a valid python code.	
-Then Tree - Correct output is displayed in the console.
+When User clicks on Run Button after entering a valid python code from Excel <Rownumber> for Tree Module
+Then Correct output is displayed in the console from Excel <Rownumber> for Tree Module
+Examples:
+|Rownumber|
+|1|
