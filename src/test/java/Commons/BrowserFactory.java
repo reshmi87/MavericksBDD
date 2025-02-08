@@ -9,33 +9,45 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class BrowserFactory {
 	
-	private static ThreadLocal<WebDriver>driver = new ThreadLocal<>();
-	private Properties prop = new Properties();
-	private String browsername;
+	private static WebDriver driver;
+	private static Properties prop = new Properties();
 	WebDriver driverinstance;
+	private static String browserType = null;
 	
-	public WebDriver browsersetup() {
-		try {
-			prop.load(BrowserFactory.class.getClassLoader().getResourceAsStream("configuration.properties"));
-			browsername = prop.getProperty("browser");
-			LoggerLoad.info("Browser is: "+browsername);
-			if(browsername.equalsIgnoreCase("Chrome")) {
-				driver.set(new ChromeDriver());
-				}
-			else if(browsername.equalsIgnoreCase("Edge")) {
-				driver.set(new EdgeDriver());
-			}
-			else if(browsername.equalsIgnoreCase("Firefox")) {
-				driver.set(new FirefoxDriver());
-			}
-		} catch (IOException e) {
-			e.printStackTrace(); 
-			}
-		driverinstance = driver.get();
-		return driverinstance;
+	public static void setBrowserType(String browser) {
+		browserType = browser;
+	}
+	
+	public static String browserfromconfigfile() throws IOException {
+		prop.load(BrowserFactory.class.getClassLoader().getResourceAsStream("configuration.properties"));
+		browserType = prop.getProperty("browser");
+		return browserType;
+	}
+	
+	public static String getBrowserType() throws IOException {
+		if (browserType == null)
+		{
+			browserType=browserfromconfigfile();
 		}
+		return browserType;
+	}
+	
+	public WebDriver browsersetup(String browsername) 
+	{
+		if(browsername.equalsIgnoreCase("Chrome")) {
+			driver = new ChromeDriver();
+			}
+		else if(browsername.equalsIgnoreCase("Edge")) {
+			driver = new EdgeDriver();
+			}
+		else if(browsername.equalsIgnoreCase("Firefox")) {
+			driver = new FirefoxDriver();
+			}
+		driverinstance = driver;
+		return driverinstance;
+	} 
 	
 	public static WebDriver getdriverinstance() {
-		return driver.get();
+		return driver;
 	}
-}
+	}

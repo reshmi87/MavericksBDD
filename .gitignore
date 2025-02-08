@@ -2,3 +2,5 @@ target/
 test-output/
 logs/
 allure-results/
+ExtentReports/
+Reports/

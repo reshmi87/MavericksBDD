@@ -57,7 +57,7 @@ Examples:
 |Rownumber|
 |1|
 
-@positiveflow
+@positiveflow @crossbrowser
 Scenario Outline: Tree - Verify that the user is able to navigate to the Terminologies page	
 Given User is in the Tree page after logging in using credentials from Excel <Rownumber>	
 When Tree - User clicks on the hyperlink Terminologies.	
@@ -90,7 +90,7 @@ Examples:
 |Rownumber|
 |1|
 
-@positiveflow
+@positiveflow @crossbrowser
 Scenario Outline: Verify that the user is able to navigate to the Types of Trees page	
 Given User is in the Tree page after logging in using credentials from Excel <Rownumber>	
 When User clicks on the hyperlink Types of Trees.	
@@ -123,7 +123,7 @@ Examples:
 |Rownumber|
 |1|
 
-@positiveflow
+@positiveflow @crossbrowser
 Scenario Outline: Verify that the user is able to navigate to the Tree Traversals page	
 Given User is in the Tree page after logging in using credentials from Excel <Rownumber>	
 When User clicks on the hyperlink Tree Traversals.	
@@ -156,7 +156,7 @@ Examples:
 |Rownumber|
 |1|
 
-@positiveflow
+@positiveflow @crossbrowser
 Scenario Outline: Tree - Verify that the user is able to navigate to the Traversals-Illustration page	
 Given User is in the Tree page after logging in using credentials from Excel <Rownumber>	
 When Tree - User clicks on the hyperlink Traversals-Illustration.	
@@ -189,7 +189,7 @@ Examples:
 |Rownumber|
 |1|
 
-@positiveflow
+@positiveflow @crossbrowser
 Scenario Outline: Verify that the user is able to navigate to the Binary Trees page	
 Given User is in the Tree page after logging in using credentials from Excel <Rownumber>	
 When User clicks on the hyperlink Binary Trees.	
@@ -222,7 +222,7 @@ Examples:
 |Rownumber|
 |1|
 
-@positiveflow
+@positiveflow @crossbrowser
 Scenario Outline: Verify that the user is able to navigate to the Types of Binary Trees page	
 Given User is in the Tree page after logging in using credentials from Excel <Rownumber>	
 When User clicks on the hyperlink Types of Binary Trees.	
@@ -255,7 +255,7 @@ Examples:
 |Rownumber|
 |1|
 
-@positiveflow
+@positiveflow @crossbrowser
 Scenario Outline: Tree - Verify that the user is able to navigate to the Implementation in Python page	
 Given User is in the Tree page after logging in using credentials from Excel <Rownumber>	
 When Tree - User clicks on the hyperlink Implementation in Python.	
@@ -288,7 +288,7 @@ Examples:
 |Rownumber|
 |1|
 
-@positiveflow
+@positiveflow @crossbrowser
 Scenario Outline: Verify that the user is able to navigate to the Binary Tree Traversals page	
 Given User is in the Tree page after logging in using credentials from Excel <Rownumber>	
 When User clicks on the hyperlink  Binary Tree Traversals.	
@@ -321,7 +321,7 @@ Examples:
 |Rownumber|
 |1|
 
-@positiveflow
+@positiveflow @crossbrowser
 Scenario Outline: Verify that the user is able to navigate to the Implementation of Binary Trees page	
 Given User is in the Tree page after logging in using credentials from Excel <Rownumber>	
 When User clicks on the hyperlink Implementation of Binary Trees.	
@@ -354,7 +354,7 @@ Examples:
 |Rownumber|
 |1|
 
-@positiveflow
+@positiveflow @crossbrowser
 Scenario Outline: Verify that the user is able to navigate to the Applications of Binary trees page	
 Given User is in the Tree page after logging in using credentials from Excel <Rownumber>	
 When User clicks on the hyperlink Applications of Binary trees.	
@@ -387,7 +387,7 @@ Examples:
 |Rownumber|
 |1|
 
-@positiveflow
+@positiveflow @crossbrowser
 Scenario Outline: Verify that the user is able to navigate to the Binary Search Trees page	
 Given User is in the Tree page after logging in using credentials from Excel <Rownumber>	
 When User clicks on the hyperlink Binary Search Trees.	
@@ -420,7 +420,7 @@ Examples:
 |Rownumber|
 |1|
 
-@positiveflow
+@positiveflow @crossbrowser
 Scenario Outline: Tree - Verify that the user is able to navigate to the Implementation Of BST page	
 Given User is in the Tree page after logging in using credentials from Excel <Rownumber>
 When Tree - User clicks on the hyperlink Implementation Of BST.	
