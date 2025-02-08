@@ -101,6 +101,17 @@ public class LinkedListPage {
 
 	@FindBy(xpath = "//p[text() = ' Practice Questions']")
 	WebElement practiceQuestionsPage;
+	
+	@FindBy (linkText="Sign in") WebElement signIn;
+	
+	
+	public void loginHome(String uName, String pwd) {
+		signIn.click();
+		setUserName(uName);
+		setPassword(pwd);
+		clickBtnLogin();
+		
+	}
 
 	public void setUserName(String uName) {
 		inputUsername.clear();
