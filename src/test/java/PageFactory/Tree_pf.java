@@ -38,7 +38,10 @@ public class Tree_pf{
 	@FindBy (xpath="//div[@class='input']//textarea") WebElement codetextarea;
 	@FindBy (xpath="//button[@type='button']") WebElement runbutton;
 	@FindBy (xpath="//pre[@id='output']") WebElement consoleoutput;
-
+	@FindBy (xpath="//a[contains(text(),'Data Structures')]") WebElement Datastructuredd;
+	@FindBy (xpath="//a[text()='Tree']") WebElement Treedd;
+	
+			
 	public void homepage(String uname, String pwd) {
 		PageFactory.initElements(driver,this);
 		signin.click();
@@ -49,6 +52,13 @@ public class Tree_pf{
 	
 	public String Treepage() {
 	    treegetstarted.click();
+	    pagetitle = driver.getTitle();
+		return pagetitle;
+		}
+	
+	public String TreepagefromDD() {
+		Datastructuredd.click();
+		Treedd.click();
 	    pagetitle = driver.getTitle();
 		return pagetitle;
 		}

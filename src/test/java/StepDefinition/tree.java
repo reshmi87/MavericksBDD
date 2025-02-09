@@ -542,4 +542,28 @@ public void tree_user_is_in_try_editor_page_from_implementation_of_bst_page() th
 	assertEquals(pagetitle, "Assessment", "Not on the Try Editor page");
 	LoggerLoad.info("Current page: "+pagetitle);
 }
+
+@Given("Tree - User signed in dsAlgo Portal and is on the home page")
+public void tree_user_signed_in_ds_algo_portal_and_is_on_the_home_page() throws IOException {
+	LoggerLoad.info("Launched browser from hooks !!");
+	LoggerLoad.info("Signing in..");
+	tpf=new Tree_pf();
+	ConfigReader config = new ConfigReader();
+	String username = config.getusername();
+	String password = config.getpassword();
+	tpf.homepage(username, password);
+	}
+
+@When("User clicks on Tree from the drop down above and navigate to Overview of Trees page.")
+public void user_clicks_on_tree_from_the_drop_down_above_and_navigate_to_overview_of_trees_page() {
+	LoggerLoad.info("Moving to Tree page from dropdown..");
+	pagetitle = tpf.TreepagefromDD();
+	pagetitle = tpf.overviewoftrees();
+}
+
+@Then("User navigates to Tree page after clicking on the dropdown above and further navigates to Overview of Trees page successfully.")
+public void user_navigates_to_tree_page_after_clicking_on_the_dropdown_above_and_further_navigates_to_overview_of_trees_page_successfully() {
+	assertEquals(pagetitle, "Overview of Trees", "Not on the Overview of Trees page");
+	LoggerLoad.info("Current page: "+pagetitle);
+}
 }
