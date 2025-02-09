@@ -453,7 +453,7 @@ Examples:
 |Rownumber|
 |1|
 
-@positiveflow crossbrowser
+@positiveflow @crossbrowser
 Scenario: Verify that the user is able to navigate to Trees page from dropdown at the top and navigate further
 Given Tree - User signed in dsAlgo Portal and is on the home page
 When User clicks on Tree from the drop down above and navigate to Overview of Trees page.
