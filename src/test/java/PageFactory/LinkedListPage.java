@@ -104,6 +104,9 @@ public class LinkedListPage {
 	
 	@FindBy (linkText="Sign in") WebElement signIn;
 	
+	@FindBy (xpath="//a[contains(text(),'Data Structures')]") WebElement dsDropDown;
+	
+	@FindBy (xpath="//a[text()='Linked List']") WebElement linkedListDropDownValue;
 	
 	public void loginHome(String uName, String pwd) {
 		signIn.click();
@@ -228,6 +231,11 @@ public class LinkedListPage {
 		String alertText = alert.getText();
 		alert.accept();
 		return alertText;
+	}
+	
+	public void selectLinkedListFromDsDropDown() {
+		dsDropDown.click();
+		linkedListDropDownValue.click();
 	}
 
 }

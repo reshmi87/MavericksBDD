@@ -7,6 +7,15 @@ Scenario Outline: Verify if User is able to navigate to LinkedList Page
 	Examples: 
 		|Rownumber|
 		|1|
+
+Scenario Outline:
+Verify that the user is able to navigate to LinkedList page from dropdown at the top and navigate further 
+	Given User is in Home screen after logging in for LinkedList <Rownumber> 
+	When User clicks on LinkedList from the DS drop down 
+	Then User should be redirected to the LinkedList page 
+	Examples: 
+		|Rownumber|
+		|1| 
 		
 		
 Scenario Outline: 

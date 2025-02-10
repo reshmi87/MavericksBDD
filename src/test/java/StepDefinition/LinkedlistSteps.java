@@ -24,6 +24,11 @@ public class LinkedlistSteps {
 	public void User_clicks_on_Get_Started_button_in_Linked_List_panel() {
 		this.linkedListPage.clickGetStarted();
 	}
+	
+	@When("User clicks on LinkedList from the DS drop down")
+	public void user_clicks_on_LinkedList_from_the_ds_drop_down() {
+		linkedListPage.selectLinkedListFromDsDropDown();
+	}
 
 	@Then("User should be redirected to the LinkedList page")
 	public void User_should_be_redirected_to_the_LinkedList_page() {
