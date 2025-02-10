@@ -2,6 +2,9 @@ package StepDefinition;
 
 import static org.testng.Assert.assertEquals;
 
+import java.io.IOException;
+
+import Commons.ConfigReader;
 import Commons.LoggerLoad;
 import PageFactory.ds_pf;
 import io.cucumber.java.en.Given;
@@ -12,11 +15,14 @@ public class ds_sd extends ds_pf{
 	
 	ds_pf dspf=new ds_pf();
 	String pagetitle;
-	//Background
+	//DS0
 	@Given("The user is in the Home page after logged in for Data Structures - Introduction page")
-	public void the_user_is_in_the_home_page_after_logged_in_for_data_structures_introduction_page() {
+	public void the_user_is_in_the_home_page_after_logged_in_for_data_structures_introduction_page() throws IOException {
 		
-		pagetitle=dspf.homepage();
+		ConfigReader config = new ConfigReader();
+		String username = config.getusername();
+		String password = config.getpassword();
+		pagetitle=dspf.homepage(username,password);
 		assertEquals(pagetitle, "NumpyNinja", "Not on the NumpyNinja Home page");
 		LoggerLoad.info(pagetitle);
 	}
@@ -41,8 +47,14 @@ public class ds_sd extends ds_pf{
 	//@DS1-done-Passed
 
 	@Given("The user is in the Data Structures - Introduction page")
-	public void the_user_is_in_the_data_structures_introduction_page() {
+	public void the_user_is_in_the_data_structures_introduction_page() throws IOException {
 		
+		ConfigReader config = new ConfigReader();
+		String username = config.getusername();
+		String password = config.getpassword();
+		pagetitle=dspf.homepage(username,password);
+		
+		pagetitle = dspf.dspage();
 		pagetitle = dspf.checkpageTitle();
 		assertEquals(pagetitle, "Data Structures-Introduction", "Not on the Data Structures-Introduction");
 		LoggerLoad.info(pagetitle);
@@ -67,8 +79,12 @@ public class ds_sd extends ds_pf{
 	//@DS2-Done -failed
 
 	@Given("The user is in the Time Complexity page of Data structures-Introduction")
-	public void the_user_is_in_the_time_complexity_page_of_data_structures_introduction() {
-		
+	public void the_user_is_in_the_time_complexity_page_of_data_structures_introduction() throws IOException {
+		ConfigReader config = new ConfigReader();
+		String username = config.getusername();
+		String password = config.getpassword();
+		pagetitle=dspf.homepage(username,password);
+		pagetitle = dspf.dspage();
 		pagetitle = dspf.clickTimeComplexityLink();
 		assertEquals(pagetitle, "Time Complexity", "Not on the Time Complexity page");
 		LoggerLoad.info(pagetitle);
@@ -85,14 +101,18 @@ public class ds_sd extends ds_pf{
 		
 		practicequestioncontent = dspf.PracticeQuestioncontentcheck();
 	    assertEquals(practicequestioncontent, true);
-	    dspf.closebrowser();
+	    //dspf.closebrowser();
 	}
 	
 	//@DS3-Done-passed
 
 	@Given("The DS-user is in the Time Complexity page of Data structures-Introduction")
-	public void the_ds_user_is_in_the_time_complexity_page_of_data_structures_introduction() {
-		
+	public void the_ds_user_is_in_the_time_complexity_page_of_data_structures_introduction() throws IOException {
+		ConfigReader config = new ConfigReader();
+		String username = config.getusername();
+		String password = config.getpassword();
+		pagetitle=dspf.homepage(username,password);
+		pagetitle = dspf.dspage();
 		pagetitle = dspf.clickTimeComplexityLink();
 		assertEquals(pagetitle, "Time Complexity", "Not on the Time Complexity page");
 		LoggerLoad.info(pagetitle);
@@ -116,8 +136,12 @@ public class ds_sd extends ds_pf{
 	//@DS4--Done-passed(Bug)-not showing alert window
 
 	@Given("The ds-user is in the try Editor page of Data structures-Introduction")
-	public void the_ds_user_is_in_the_try_editor_page_of_data_structures_introduction() {
-		
+	public void the_ds_user_is_in_the_try_editor_page_of_data_structures_introduction() throws IOException {
+		ConfigReader config = new ConfigReader();
+		String username = config.getusername();
+		String password = config.getpassword();
+		pagetitle=dspf.homepage(username,password);
+		pagetitle = dspf.dspage();
 		pagetitle=dspf.clickTimeComplexityLink();
 		pagetitle=dspf.tryhere();
 		assertEquals(pagetitle, "Assessment", "Not on the Try Editor page");
@@ -138,14 +162,18 @@ public class ds_sd extends ds_pf{
 		
 		String alertmessage = dspf.handlealert();
 		LoggerLoad.info(alertmessage);
-		dspf.closebrowser();
+		//dspf.closebrowser();
 	}
 	
 	//@DS5-Done
 
 	@Given("The DS-user is in the try Editor page of Data structures-Introduction")
-	public void user_is_in_the_try_editor_page_of_data_structures_introduction() {
-		
+	public void user_is_in_the_try_editor_page_of_data_structures_introduction() throws IOException {
+		ConfigReader config = new ConfigReader();
+		String username = config.getusername();
+		String password = config.getpassword();
+		pagetitle=dspf.homepage(username,password);
+		pagetitle = dspf.dspage();
 		pagetitle=dspf.clickTimeComplexityLink();
 		pagetitle=dspf.tryhere();
 		assertEquals(pagetitle, "Assessment", "Not on the Try Editor page");
@@ -169,8 +197,12 @@ public class ds_sd extends ds_pf{
 	//@DS6-Done
 
 	@Given("The user is in the try Editor page of Data structures-Introduction")
-	public void the_user_is_in_the_try_editor_page_of_data_structures_introduction() {
-		
+	public void the_user_is_in_the_try_editor_page_of_data_structures_introduction() throws IOException {
+		ConfigReader config = new ConfigReader();
+		String username = config.getusername();
+		String password = config.getpassword();
+		pagetitle=dspf.homepage(username,password);
+		pagetitle = dspf.dspage();
 		pagetitle=dspf.clickTimeComplexityLink();
 		pagetitle=dspf.tryhere();
 		assertEquals(pagetitle, "Assessment", "Not on the Try Editor page");

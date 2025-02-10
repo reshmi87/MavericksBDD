@@ -20,13 +20,11 @@ public class ds_pf {
 	
 
 	
-	String LoginURL ="https://dsportalapp.herokuapp.com/login";
-	String Uname="milestonemavericks";
-	String Pwd="Welcome@123";
-	WebDriver driver = BrowserFactory.getdriverinstance();
 	String pagetitle;
 	protected boolean practicequestioncontent;
+	WebDriver driver = BrowserFactory.getdriverinstance();
 	
+	@FindBy (linkText="Sign in") WebElement signin;
 	@FindBy(name="username") WebElement username;
 	@FindBy(name="password") WebElement password;
 	@FindBy(xpath="//input[@value='Login']") WebElement Login;
@@ -46,16 +44,11 @@ public class ds_pf {
 	
 	
 	
-public String homepage() {
-		
-		driver = new ChromeDriver();
-	 	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-	 	driver.manage().window().maximize();
-	 	driver.get(LoginURL);
-	 	PageFactory.initElements(driver, this);
-	 	
-	 	username.sendKeys(Uname);
-	 	password.sendKeys(Pwd);
+	public String homepage(String uname, String Password) {
+		PageFactory.initElements(driver, this);
+		signin.click();
+	 	username.sendKeys(uname);
+	 	password.sendKeys(Password);
 	 	Login.click();
 	 	pagetitle=driver.getTitle();
 	 	return pagetitle;
@@ -64,10 +57,7 @@ public String homepage() {
 	
 	
 	
-	public void closebrowser() {
-		
-		 driver.quit();
-	}
+	
 	
 public String dspage() {
 		

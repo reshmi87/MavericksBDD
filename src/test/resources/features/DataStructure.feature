@@ -1,6 +1,6 @@
 Feature: Testing the Data Structures - Introduction Module in dsAlgo Portal
-
-    Background: Verify that user is able to navigate to Data Structures - Introduction page
+@DS0
+    Scenario: Verify that user is able to navigate to Data Structures - Introduction page
     Given The user is in the Home page after logged in for Data Structures - Introduction page
     When The user clicks Get Started button in Data Structures - Introduction panel
     Then The user should able to view Data Structures- Introduction Page

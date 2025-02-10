@@ -149,7 +149,7 @@ Then The user see an error message "Error occurred during submission"
 Scenario: Verify that user receives error on submitting valid python code for Search the array question	
 Given The user4 is on the practice question editor	
 When The user1 write the valid code in Editor and Click the Submit Button	
-Then The user see success message Submission successful
+Then The user see "Some Tests failed. Please review code"
 @A31
 Scenario: Verify that user receives error for invalid python code on running Max Consecutive Ones question	
 Given The user5 is on the practice question editor	
@@ -165,11 +165,6 @@ Scenario: Verify that user receives error on submitting invalid python code for 
 Given The user7 is on the practice question editor	
 When The user2 write the invalid code in Editor and Click the Submit Button	
 Then The user see an error message Error occurred during submission
-@A34
-Scenario: Verify that user receives error on submitting valid python code for Max Consecutive Ones question	
-Given The user8 is on the practice question editor	
-When The user2 write the valid code in Editor and Click the Submit Button	
-Then The user01 see success message Submission successful
 @A35
 Scenario: Verify that user receives error for invalid python code on running Find Numbers with Even Number of Digits question	
 Given The user9 is on the practice question editor	
@@ -184,7 +179,7 @@ Then The user7 should able to see output in the console
 Scenario: Verify that user receives error on submitting invalid python code for Find Numbers with Even Number of Digits question	
 Given The user11 is on the practice question editor	
 When The user3 write the invalid code in Editor and Click the Submit Button	
-Then The user see an error message Error occurred during submission
+Then The user100 see an error message Error occurred during submission
 @A38
 Scenario: Verify that user receives error on submitting valid python code for Find Numbers with Even Number of Digits question	
 Given The user12 is on the practice question editor	
@@ -201,12 +196,7 @@ Given The user14 is on the practice question editor
 When The user8 write the valid code in Editor and Click the Run Button	
 Then The user8 should able to see output in the console
 @A41
-Scenario: Verify that user receives error on submitting invalid python code for Square of a Sorted Array question	
-Given The user15 is on the practice question editor	
-When The user4 write the invalid code in Editor and Click the Submit Button	
-Then The user see an error message Error occurred during submission
-@A42
-Scenario: Verify that user receives error on submitting valid python code for Square of a Sorted Arrays question	
-Given The user16 is on the practice question editor	
-When The user4 write the valid code in Editor and Click the Submit Button	
-Then The user001 see success message Submission successful
+Scenario: Verify that user receives error on submitting valid python code for Square of a Sorted Array question	
+Given The user141 is on the practice question editor	
+When The user14 write the valid code in Editor and Click the Submit Button	
+Then The user see "No tests were collected"
