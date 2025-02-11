@@ -43,7 +43,7 @@ Examples:
 @login6
 Scenario Outline: User has entered the right ID
 Given Users can open Sign in page
-When The user enters an invalid user id + password combination from excel sheet <Rownumber>
+When The user enters an invalid user id and password combination from excel sheet <Rownumber>
 Then Then user will display Please check your user id
 Examples:
 |Rownumber|
@@ -52,7 +52,7 @@ Examples:
 @login7
 Scenario Outline: User has entered the right password
 Given Users can open Sign in page
-When The user enters an valid user id + invalid password from excel sheet <Rownumber>
+When The user enters an valid user id and invalid password from excel sheet <Rownumber>
 Then Then user will display Please check your password
 Examples:
 |Rownumber|
@@ -61,7 +61,7 @@ Examples:
 @login8
 Scenario Outline: User have vaild Id password
 Given Users can open Sign in page
-When The user enters an invalid user id + valid password from excel sheet <Rownumber>
+When The user enters an invalid user id and valid password from excel sheet <Rownumber>
 Then Then user will display Invalid username and password
 Examples:
 |Rownumber|
@@ -70,7 +70,7 @@ Examples:
 @login9
 Scenario Outline: User have vaild Id password
 Given Users can open Sign in page
-When The user enters an valid user id + password from excel sheet <Rownumber>
+When The user enters an valid user id and password from excel sheet <Rownumber>
 Then Then user should be redirected to Home Page with the message You are logged in and with the user name on the top
 Examples:
 |Rownumber|
