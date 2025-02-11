@@ -88,8 +88,8 @@ public class Login {
 	    assertEquals(pagetitle, "Signin", "Not on the Registration page");
 	}
 
-	@When("The user enters an invalid user id {double} password combination from excel sheet {int}")
-	public void the_user_enters_an_invalid_user_id_password_combination_from_excel_sheet(Double double1, Integer Rownum) throws IOException{
+	@When("The user enters an invalid user id and password combination from excel sheet {int}")
+	public void the_user_enters_an_invalid_user_id_and_password_combination_from_excel_sheet(Integer Rownum) throws IOException {
 		ExcelReader read = new ExcelReader();
 		String username = read.getusername(Rownum);
 		lpf.enterUsername(username);
@@ -102,8 +102,8 @@ public class Login {
 	    assertEquals(pagetitle, "Signin", "Not on the Registration page");
 	}
 
-	@When("The user enters an valid user id {double} invalid password from excel sheet {int}")
-	public void the_user_enters_an_valid_user_id_invalid_password_from_excel_sheet(Double double1, Integer Rownum) throws IOException{
+	@When("The user enters an valid user id and invalid password from excel sheet {int}")
+	public void the_user_enters_an_valid_user_id_and_invalid_password_from_excel_sheet(Integer Rownum) throws IOException {
 		ExcelReader read = new ExcelReader();
 		String username = read.getusername(Rownum);
 		lpf.enterUsername(username);
@@ -116,22 +116,22 @@ public class Login {
 	    assertEquals(pagetitle, "Signin", "Not on the Registration page");
 	}
 
-	@When("The user enters an invalid user id {double} valid password from excel sheet {int}")
-	public void the_user_enters_an_invalid_user_id_valid_password_from_excel_sheet(Double double1, Integer Rownum) throws IOException{
+	@When("The user enters an invalid user id and valid password from excel sheet {int}")
+	public void the_user_enters_an_invalid_user_id_and_valid_password_from_excel_sheet(Integer Rownum) throws IOException {
 		ExcelReader read = new ExcelReader();
 		String username = read.getusername(Rownum);
 		lpf.enterUsername(username);
 		lpf.clickLogin();
 	}
-
+	
 	@Then("Then user will display Invalid username and password")
 	public void then_user_will_display_invalid_username_and_password() {
 		pagetitle = lpf.checkpageTitle();
 	    assertEquals(pagetitle, "Signin", "Not on the Registration page");
 	}
 
-	@When("The user enters an valid user id {double} password from excel sheet {int}")
-	public void the_user_enters_an_valid_user_id_password_from_excel_sheet(Double double1, Integer Rownum) throws IOException{
+	@When("The user enters an valid user id and password from excel sheet {int}")
+	public void the_user_enters_an_valid_user_id_and_password_from_excel_sheet(Integer Rownum) throws IOException {
 		ExcelReader read = new ExcelReader();
 		String username = read.getusername(Rownum);
 		lpf.enterUsername(username);
