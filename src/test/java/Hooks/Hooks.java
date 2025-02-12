@@ -10,6 +10,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 
 import Commons.BrowserFactory;
+import Commons.ConfigReader;
 import Commons.LoggerLoad;
 import io.cucumber.java.After;
 import io.cucumber.java.AfterStep;
@@ -22,22 +23,14 @@ public class Hooks {
 	public BrowserFactory bf=new BrowserFactory();
 	public WebDriver driver;
 	private String appurl;
-	private Properties prop = new Properties();
-	
+	ConfigReader config = new ConfigReader();
 
 	@Before
 	public void homepage() throws Throwable {
 		String browser = bf.getBrowserType();
 		driver =bf.browsersetup(browser);
-		try {
-			prop.load(BrowserFactory.class.getClassLoader().getResourceAsStream("configuration.properties"));
-			appurl = prop.getProperty("appurl");
-			driver.get(appurl);
-			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-			driver.manage().window().maximize();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		appurl = config.getappurl();
+		driver.get(appurl);
 	}
 	
 	@AfterStep

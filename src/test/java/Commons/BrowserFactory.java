@@ -1,53 +1,53 @@
 package Commons;
 
 import java.io.IOException;
-import java.util.Properties;
+import java.time.Duration;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class BrowserFactory {
-	
-	private static WebDriver driver;
-	private static Properties prop = new Properties();
+
 	WebDriver driverinstance;
 	private static String browserType = null;
+	private static ThreadLocal<WebDriver>driver = new ThreadLocal<>();
+
 	
 	public static void setBrowserType(String browser) {
 		browserType = browser;
 	}
 	
-	public static String browserfromconfigfile() throws IOException {
-		prop.load(BrowserFactory.class.getClassLoader().getResourceAsStream("configuration.properties"));
-		browserType = prop.getProperty("browser");
-		return browserType;
-	}
-	
 	public static String getBrowserType() throws IOException {
 		if (browserType == null)
 		{
-			browserType=browserfromconfigfile();
+			browserType=ConfigReader.browserfromconfigfile();
 		}
 		return browserType;
 	}
 	
-	public WebDriver browsersetup(String browsername) 
+	public WebDriver browsersetup(String browsername) throws IOException 
 	{
-		if(browsername.equalsIgnoreCase("Chrome")) {
-			driver = new ChromeDriver();
+		LoggerLoad.info("Loading Browser:"+browsername);
+			if(browsername.equalsIgnoreCase("Chrome")) {
+				driver.set(new ChromeDriver());
+				}
+			else if(browsername.equalsIgnoreCase("Edge")) {
+				driver.set(new EdgeDriver());
 			}
-		else if(browsername.equalsIgnoreCase("Edge")) {
-			driver = new EdgeDriver();
+			else if(browsername.equalsIgnoreCase("Firefox")) {
+				driver.set(new FirefoxDriver());
 			}
-		else if(browsername.equalsIgnoreCase("Firefox")) {
-			driver = new FirefoxDriver();
-			}
-		driverinstance = driver;
+		
+		driverinstance = driver.get();
+		driverinstance.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		driverinstance.manage().window().maximize();
 		return driverinstance;
-	} 
+		} 
+
 	
-	public static WebDriver getdriverinstance() {
-		return driver;
-	}
+public static WebDriver getdriverinstance() {
+	return driver.get();
+}
 	}
