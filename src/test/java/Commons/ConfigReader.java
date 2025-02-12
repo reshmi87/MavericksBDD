@@ -1,14 +1,15 @@
 package Commons;
 
-
 import java.io.IOException;
 import java.util.Properties;
 
 public class ConfigReader {
 	
-	private Properties prop = new Properties();
+	private static Properties prop = new Properties();
 	private String username;
 	private String password;
+	
+
 	
 	public String getusername() throws IOException {
 	prop.load(ConfigReader.class.getClassLoader().getResourceAsStream("configuration.properties"));
@@ -21,4 +22,18 @@ public class ConfigReader {
 		password = prop.getProperty("password");
 		return password;
 		}
+	
+	public static String browserfromconfigfile() throws IOException {
+		
+		prop.load(BrowserFactory.class.getClassLoader().getResourceAsStream("configuration.properties"));
+		String browserType = prop.getProperty("browser");
+		return browserType;
+	}
+	
+	public String getappurl() throws IOException {
+		prop.load(BrowserFactory.class.getClassLoader().getResourceAsStream("configuration.properties"));
+		String appurl = prop.getProperty("appurl");
+		return appurl;
+	}
+	
 }
