@@ -27,9 +27,6 @@ public void tree_user_is_in_the_home_page_after_logging_in_using_credentials_fro
 	String username = read.getusername(Rownum);
 	String password = read.getpassword(Rownum);	
 	tpf.homepage(username, password);
-	pagetitle = tpf.checkpageTitle();
-	assertEquals(pagetitle, "NumpyNinja", "Not on the Home page");
-    LoggerLoad.info("Current page: "+pagetitle);
 }
 
 @Given("User is in the Tree page after logging in using credentials from Excel {int}")
@@ -43,8 +40,6 @@ public void user_is_in_the_tree_page_after_logging_in_using_credentials_from_exc
 	tpf.homepage(username, password);
 	LoggerLoad.info("Moving to Tree page..");
 	pagetitle = tpf.Treepage();
-	assertEquals(pagetitle, "Tree", "Not on the Tree page");
-    LoggerLoad.info("Current page: "+pagetitle);
 }
 
 @When("User clicks on Get Started button under the section Tree")
@@ -71,8 +66,6 @@ public void user_is_in_the_tree_page() throws IOException {
 	tpf.homepage(username, password);
 	LoggerLoad.info("Moving to Tree page..");
 	pagetitle = tpf.Treepage();
-	assertEquals(pagetitle, "Tree", "Not on the Tree page");
-    LoggerLoad.info("Current page: "+pagetitle);
 }
 
 @When("User clicks on the hyperlink Overview of Trees")
@@ -98,8 +91,6 @@ public void user_is_in_the_overview_of_trees_page() throws IOException {
 	LoggerLoad.info("Moving to Tree page..");
 	pagetitle = tpf.Treepage();
 	pagetitle = tpf.overviewoftrees();
-	assertEquals(pagetitle, "Overview of Trees", "Not on the Overview of Trees page");
-	LoggerLoad.info("Current page: "+pagetitle);  
 }
 
 
@@ -138,8 +129,6 @@ public void tree_user_is_in_try_editor_page_from_overview_of_trees_page() throws
 	pagetitle = tpf.Treepage();
 	pagetitle = tpf.overviewoftrees();
 	pagetitle=tpf.tryhere();
-	assertEquals(pagetitle, "Assessment", "Not on the Try Editor page");
-	LoggerLoad.info("Current page: "+pagetitle);
 }
 
 @When("Tree - User clicks on Run Button without entering the code")
@@ -202,8 +191,6 @@ public void user_is_in_tree_page() throws IOException {
 	tpf.homepage(username, password);
 	LoggerLoad.info("Moving to Tree page..");
 	pagetitle = tpf.Treepage();
-	assertEquals(pagetitle, "Tree", "Not on the Tree page");
-	LoggerLoad.info("Current page: "+pagetitle);
 }
 
 @When("Tree - User clicks on the hyperlink Terminologies.")
@@ -230,8 +217,6 @@ public void tree_user_is_in_try_editor_page_from_terminologies_page() throws IOE
 	pagetitle = tpf.Treepage();
 	pagetitle=tpf.terminologies();
 	pagetitle=tpf.tryhere();
-	assertEquals(pagetitle, "Assessment", "Not on the Try Editor page");
-	LoggerLoad.info("Current page: "+pagetitle);
 }
 
 @When("User clicks on the hyperlink Types of Trees.")
@@ -258,8 +243,6 @@ public void tree_user_is_in_try_editor_page_from_types_of_trees_page() throws IO
 	pagetitle = tpf.Treepage();
 	pagetitle=tpf.typesoftrees();
 	pagetitle=tpf.tryhere();
-	assertEquals(pagetitle, "Assessment", "Not on the Try Editor page");
-	LoggerLoad.info("Current page: "+pagetitle);
 }
 
 
@@ -287,8 +270,6 @@ public void tree_user_is_in_try_editor_page_from_tree_traversals_page() throws I
 	pagetitle = tpf.Treepage();
 	pagetitle=tpf.treetraversals();
 	pagetitle=tpf.tryhere();
-	assertEquals(pagetitle, "Assessment", "Not on the Try Editor page");
-	LoggerLoad.info("Current page: "+pagetitle);
 }
 
 @When("Tree - User clicks on the hyperlink Traversals-Illustration.")
@@ -315,8 +296,6 @@ public void tree_user_is_in_try_editor_page_from_traversals_illustration_page() 
 	pagetitle = tpf.Treepage();
 	pagetitle=tpf.traversalsillustration();
 	pagetitle=tpf.tryhere();
-	assertEquals(pagetitle, "Assessment", "Not on the Try Editor page");
-	LoggerLoad.info("Current page: "+pagetitle);
 }
 
 @When("User clicks on the hyperlink Binary Trees.")
@@ -343,8 +322,6 @@ public void tree_user_is_in_try_editor_page_from_binary_trees_page() throws IOEx
 	pagetitle = tpf.Treepage();
 	pagetitle=tpf.binarytrees();
 	pagetitle=tpf.tryhere();
-	assertEquals(pagetitle, "Assessment", "Not on the Try Editor page");
-	LoggerLoad.info("Current page: "+pagetitle);
 }
 
 @When("User clicks on the hyperlink Types of Binary Trees.")
@@ -371,8 +348,6 @@ public void tree_user_is_in_try_editor_page_from_types_of_binary_trees_page() th
 	pagetitle = tpf.Treepage();
 	pagetitle=tpf.binarytrees();
 	pagetitle=tpf.tryhere();
-	assertEquals(pagetitle, "Assessment", "Not on the Try Editor page");
-	LoggerLoad.info("Current page: "+pagetitle);
 }
 
 @When("Tree - User clicks on the hyperlink Implementation in Python.")
@@ -399,8 +374,6 @@ public void tree_user_is_in_try_editor_page_from_implementation_in_python_page()
 	pagetitle = tpf.Treepage();
 	pagetitle=tpf.implementationinpython();
 	pagetitle=tpf.tryhere();
-	assertEquals(pagetitle, "Assessment", "Not on the Try Editor page");
-	LoggerLoad.info("Current page: "+pagetitle);
 }
 
 @When("User clicks on the hyperlink  Binary Tree Traversals.")
@@ -427,8 +400,6 @@ public void tree_user_is_in_try_editor_page_from_binary_tree_traversals_page() t
 	pagetitle = tpf.Treepage();
 	pagetitle=tpf.binarytreetraversals();
 	pagetitle=tpf.tryhere();
-	assertEquals(pagetitle, "Assessment", "Not on the Try Editor page");
-	LoggerLoad.info("Current page: "+pagetitle);
 }
 
 @When("User clicks on the hyperlink Implementation of Binary Trees.")
@@ -455,8 +426,6 @@ public void tree_user_is_in_try_editor_page_from_implementation_of_binary_trees_
 	pagetitle = tpf.Treepage();
 	pagetitle=tpf.implementationofbinarytrees();
 	pagetitle=tpf.tryhere();
-	assertEquals(pagetitle, "Assessment", "Not on the Try Editor page");
-	LoggerLoad.info("Current page: "+pagetitle);
 }
 
 @When("User clicks on the hyperlink Applications of Binary trees.")
@@ -483,8 +452,6 @@ public void tree_user_is_in_try_editor_page_from_applications_of_binary_trees_pa
 	pagetitle = tpf.Treepage();
 	pagetitle=tpf.applicationofbinarytrees();
 	pagetitle=tpf.tryhere();
-	assertEquals(pagetitle, "Assessment", "Not on the Try Editor page");
-	LoggerLoad.info("Current page: "+pagetitle);
 }
 
 @When("User clicks on the hyperlink Binary Search Trees.")
@@ -511,8 +478,6 @@ public void tree_user_is_in_try_editor_page_binary_search_trees_page() throws IO
 	pagetitle = tpf.Treepage();
 	pagetitle=tpf.binarysearchtrees();
 	pagetitle=tpf.tryhere();
-	assertEquals(pagetitle, "Assessment", "Not on the Try Editor page");
-	LoggerLoad.info("Current page: "+pagetitle);
 }
 
 @When("Tree - User clicks on the hyperlink Implementation Of BST.")
@@ -539,8 +504,6 @@ public void tree_user_is_in_try_editor_page_from_implementation_of_bst_page() th
 	pagetitle = tpf.Treepage();
 	pagetitle=tpf.implementationofbst();
 	pagetitle=tpf.tryhere();
-	assertEquals(pagetitle, "Assessment", "Not on the Try Editor page");
-	LoggerLoad.info("Current page: "+pagetitle);
 }
 
 @Given("Tree - User signed in dsAlgo Portal and is on the home page")

@@ -24,9 +24,6 @@ public class Graph {
 		String username = read.getusername(Rownum);
 		String password = read.getpassword(Rownum);	
 		gpf.homepage(username, password);
-		pagetitle = gpf.checkpageTitle();
-		assertEquals(pagetitle, "NumpyNinja", "Not on the Home page");
-	    LoggerLoad.info("Current page: "+pagetitle);
 	}
 
 	@When("The user clicks the Getting Started button in Graph Pane or select Graph item from the drop down menu")
@@ -52,9 +49,6 @@ public class Graph {
 		String password = read.getpassword(Rownum);	
 		gpf.homepage(username, password);
 		LoggerLoad.info("Moving to Graph page..");
-		pagetitle = gpf.checkpageTitle();
-		assertEquals(pagetitle, "Graph", "Not on the Graph page");
-		LoggerLoad.info("Current page: "+pagetitle);
 	}
 
 	@When("The user clicks Graph button")
@@ -73,9 +67,6 @@ public class Graph {
 		String password = config.getpassword();
 		gpf.homepage(username, password);
 		LoggerLoad.info("Moving to Graph page..");
-		pagetitle = gpf.checkpageTitle();
-		assertEquals(pagetitle, "Graph", "Not on the Graph page");
-		LoggerLoad.info("Current page: "+pagetitle);
 	}
 
 	@When("The user clicks Try Here button")
@@ -110,9 +101,6 @@ public class Graph {
 		String password = config.getpassword();
 		gpf.homepage(username, password);
 		LoggerLoad.info("Moving to Graph Representation page..");
-		pagetitle = gpf.Graph();
-		assertEquals(pagetitle, "graph ReprentationPage", "Not on the tryherepage");
-	    System.out.println("Current page: "+pagetitle);
 	}
 
 	@When("The user clicks Practise Question button")

@@ -14,7 +14,7 @@ When User enter Username and Password without register from excel sheet <Rownumb
 Then The user will see a pop-up that says Invalid Username and Password
 Examples:
 |Rownumber|
-|2|
+|8|
 
 @login3
 Scenario Outline: User have already registed account
@@ -23,7 +23,7 @@ When User enter Username and Password without register from excel sheet <Rownumb
 Then The user will see a pop-up that says If you don't have an account, please Register
 Examples:
 |Rownumber|
-|2|
+|8|
 
 @login4
 Scenario: User has given Username
@@ -77,7 +77,10 @@ Examples:
 |1|
 
 @login10
-Scenario: User has logged out
-Given User is login and see the sign out
+Scenario Outline: User has logged out
+Given User is login using <Rownumber> and see the sign out
 When User try to click sign out
 Then then user we see message on home page Logged out succcessfully
+Examples:
+|Rownumber|
+|1|
