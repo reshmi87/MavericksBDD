@@ -1,8 +1,11 @@
 package PageFactory;
 
 import java.time.Duration;
+
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import Commons.BrowserFactory;
@@ -26,7 +29,12 @@ public class Graph_pf {
     @FindBy(xpath = "//button[@type='button']") WebElement runbutton;
     @FindBy(xpath = "//pre[@id='output']") WebElement output;
     @FindBy(linkText = "Practice Questions") WebElement practiceQuestions;
-
+	@FindBy (linkText="Search the Graph") WebElement practicequescontent;
+	@FindBy (xpath="//pre[@id='output']") WebElement consoleoutput;
+	@FindBy (xpath="//a[contains(text(),'Data Structures')]") WebElement Datastructuredd;
+	@FindBy (xpath="//a[text()='Graph']") WebElement Graphdd;
+	
+	
     public void homepage(String uname, String pwd) {
 
 		PageFactory.initElements(driver,this);
@@ -34,6 +42,8 @@ public class Graph_pf {
 		username.sendKeys(uname);
 		password.sendKeys(pwd);
 		login.click();
+		
+		
 	}
 
     // Method to navigate to Graph page
@@ -54,10 +64,9 @@ public class Graph_pf {
         return pagetitle;
 	}
     
-    public String Tryhere() {
+    public void Tryhere() {
 		tryEditor.click();
-        pagetitle = driver.getTitle();
-        return pagetitle;
+
 	}
     
     public String GraphRepresentationsPage() {
@@ -74,4 +83,30 @@ public class Graph_pf {
 		practiceQuestions.click();
         
 	}
+	
+    public boolean PracticeQuestioncontentcheck() {
+    	boolean iscontentpresent = practicequescontent.isDisplayed();
+    	return iscontentpresent;
+    }
+    
+    public void entercode(String code) {    	
+    	Actions actions = new Actions(driver);
+		actions.sendKeys(code).perform();
+    }
+    public String handlealert() {
+    	Alert alert = driver.switchTo().alert();
+    	String alertmessage = alert.getText();
+    	alert.accept();
+    	return alertmessage;
+    }
+    public String getoutput() {
+    	String output = consoleoutput.getText();
+    	return output;
+    }
+	public String GraphpagefromDD() {
+		Datastructuredd.click();
+		Graphdd.click();
+	    pagetitle = driver.getTitle();
+		return pagetitle;
+		}
 }
