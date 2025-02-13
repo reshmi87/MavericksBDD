@@ -18,7 +18,19 @@ public class Home_pf {
     @FindBy(linkText = "Sign in") WebElement signInButton;
     @FindBy(linkText = "Register") WebElement registerButton;
     @FindBy(linkText = "data-toggle") WebElement dataStructuresDropdown;
-    @FindBy(linkText = "You are not logged in") WebElement notLoggedInPopup;
+    @FindBy(xpath = "//div[contains(text(),'You are not logged in')]") WebElement notLoggedInPopup;
+	@FindBy (linkText="Sign in") WebElement signin;
+	@FindBy (name="username") WebElement username;
+	@FindBy (name="password") WebElement password;
+	@FindBy (xpath="//input[@type='submit']") WebElement login;
+	@FindBy (xpath="//a[contains(text(),'Data Structures')]") WebElement Datastructuredd;
+	@FindBy (xpath="//a[text()='Arrays']") WebElement Arraydd;
+	@FindBy (xpath="//a[text()='Linked List']") WebElement LinkedListdd;
+	@FindBy (xpath="//a[text()='Stack']") WebElement Stackdd;
+	@FindBy (xpath="//a[text()='Queue']") WebElement Queuedd;
+	@FindBy (xpath="//a[text()='Tree']") WebElement Treedd;
+	@FindBy (xpath="//a[text()='Graph']") WebElement Graphdd;
+	
 
     public String checkpageTitle() {
     	PageFactory.initElements(driver,this);
@@ -47,14 +59,47 @@ public class Home_pf {
     }
 
     public void openDataStructuresDropdown() {
-        dataStructuresDropdown.click();
+    	Datastructuredd.click();
     }
 
     public boolean isNotLoggedInPopupVisible() {
         return notLoggedInPopup.isDisplayed();
     }
 	
-	public void setUsername(String username) {
-		
+	public void login(String uname, String pwd) {
+		signin.click();
+		username.sendKeys(uname);
+		password.sendKeys(pwd);
+		login.click();
+	}
+	
+	public String getmessage() {
+		String message = notLoggedInPopup.getText();
+		return message;	
+	}
+	
+	public boolean checkArray() {
+		boolean isvaluepresent = Arraydd.isDisplayed();
+		return isvaluepresent;
+	}
+	public boolean checkLinkedlist() {
+		boolean isvaluepresent = LinkedListdd.isDisplayed();
+		return isvaluepresent;
+	}
+	public boolean checkqueue() {
+		boolean isvaluepresent = Queuedd.isDisplayed();
+		return isvaluepresent;
+	}
+	public boolean checkstack() {
+		boolean isvaluepresent = Stackdd.isDisplayed();
+		return isvaluepresent;
+	}
+	public boolean checktree() {
+		boolean isvaluepresent = Treedd.isDisplayed();
+		return isvaluepresent;
+	}
+	public boolean checkgraph() {
+		boolean isvaluepresent = Graphdd.isDisplayed();
+		return isvaluepresent;
 	}
 }

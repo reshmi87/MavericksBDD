@@ -1,49 +1,84 @@
 @Graph
 Feature: Graph Module
 
-@Background
-Scenario Outline: The user will graph the module in the ds-portal home page
-Given The user is in the Home page after logged in using Excel <Rownumber>
-When The user clicks the Getting Started button in Graph Pane or select Graph item from the drop down menu
-Then The user should be directed to Graph Page
+Background:
+Given User has signed in dsAlgoPortal
+
+@positiveflow @crossbrowser
+Scenario: Verify that the user is able to land in Graph page
+Given Graph - User is in the Home page
+When User clicks on Get Started button under the section Graph
+Then User lands on the Graph page
+
+@positiveflow @crossbrowser
+Scenario: Verify that the user is able to navigate to the Graph Sub page
+Given User is in the Graph home page.
+When User clicks on the hyperlink Graph
+Then User lands on the Graph Sub page
+
+@positiveflow
+Scenario: Graph - Verify that the user is able to navigate to the Practice Questions page and view the content.	
+Given User is in the Graph Sub page
+When Graph - User clicks on the Practice Questions from the side navigation bar	
+Then Graph - User lands on the Practice Questions page and is able to view the content successfully
+
+
+@positiveflow
+Scenario: Graph - Verify that the Try here button is functional and error message is displayed when user tries to Run without a python code in Try Editor from Graph page	
+Given User is in Try Editor page from Graph Sub page
+When Graph - User clicks on Run Button without entering the code
+Then Graph - An Alert window with the error message is displayed
+
+@negativeflow
+Scenario Outline: Verify that the error message is displayed when user tries to Run with invalid python code in Try Editor from Graph page	
+Given User is in Try Editor page from Graph Sub page
+When User clicks on Run Button after entering a invalid python code from Excel <Rownumber> for Graph Module
+Then An Alert window with the error message from Excel <Rownumber> for Graph Module is displayed
 Examples:
 |Rownumber|
-|1|
 |2|
-|3|
 
-@Graph2
-Scenario Outline: User will redirect to graph home page
-Given The user is in the Graph page after logged in using Excel <Rownumber>
-When The user clicks Graph button
-Then The user should be directed to Graph Page
+@positiveflow
+Scenario Outline: Verify the proper output is displayed when user tries to Run with the valid python code in Try Editor from Graph page
+Given User is in Try Editor page from Graph Sub page
+When User clicks on Run Button after entering a valid python code from Excel <Rownumber> for Graph Module
+Then Correct output is displayed in the console from Excel <Rownumber> for Graph Module
 Examples:
 |Rownumber|
 |1|
 
-@Graph3
-Scenario: User will redirect to Try here page
-Given The user is in the Graph page after logged in
-When The user clicks Try Here button
-Then The user should be redirected to a page having an tryEditor with a Run button to test
+@positiveflow @crossbrowser
+Scenario: Verify that the user is able to navigate to the Graph Representation Sub page
+Given User is in the Graph home page.
+When User clicks on the hyperlink Graph Representation
+Then User lands on the Graph Representation Sub page
 
-@Graph4
-Scenario Outline: User will redirect to Graph Representation page
-Given The user is in the Graph page after logged in using Excel <Rownumber>
-When The user clicks Graph Representations button
-Then The user should be directed to Graph Representations Page
+@positiveflow
+Scenario: Graph - Verify that the Try here button is functional and error message is displayed when user tries to Run without a python code in Try Editor from Graph Representation page
+Given User is in Try Editor page from Graph Representation Sub page
+When Graph - User clicks on Run Button without entering the code
+Then Graph - An Alert window with the error message is displayed
+
+@negativeflow
+Scenario Outline: Verify that the error message is displayed when user tries to Run with invalid python code in Try Editor from Graph Representation page	
+Given User is in Try Editor page from Graph Representation Sub page
+When User clicks on Run Button after entering a invalid python code from Excel <Rownumber> for Graph Module
+Then An Alert window with the error message from Excel <Rownumber> for Graph Module is displayed
+Examples:
+|Rownumber|
+|2|
+
+@positiveflow
+Scenario Outline: Verify the proper output is displayed when user tries to Run with the valid python code in Try Editor from Graph Representation page
+Given User is in Try Editor page from Graph Representation Sub page
+When User clicks on Run Button after entering a valid python code from Excel <Rownumber> for Graph Module
+Then Correct output is displayed in the console from Excel <Rownumber> for Graph Module
 Examples:
 |Rownumber|
 |1|
 
-@Graph5
-Scenario: User will redirect to Try here page
-Given The user is in the Graph Representations page after logged in
-When The user clicks Try Here button
-Then The user should be redirected to a page having an tryEditor with a Run button to test
-
-@Graph6
-Scenario: User will redirect to Practice  page
-Given The user is in the Graph page after logged in
-When The user clicks Practise Question button
-Then The user should be directed to Practise Questions Page
+@positiveflow @crossbrowser
+Scenario: Verify that the user is able to navigate to Graph page from dropdown at the top and navigate further
+Given Graph - User signed in dsAlgo Portal and is on the home page
+When User clicks on Graph from the drop down above.
+Then User navigates to Graph page.
