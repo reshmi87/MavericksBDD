@@ -10,19 +10,18 @@ import Commons.BrowserFactory;
 public class Login_pf {
 
 	String pagetitle;
-    String url = "https://dsportalapp.herokuapp.com/home";
-    String uname = "milestonemavericks";
-    String pwd = "Welcome@123";
     WebDriver driver = BrowserFactory.getdriverinstance();
 
     // Web elements
+    
     @FindBy(linkText = "Sign in") WebElement Login;
-    @FindBy(id = "username") WebElement usernameField;
-    @FindBy(id = "password") WebElement passwordField;
+	@FindBy (name="username") WebElement usernameField;
+	@FindBy (name="password") WebElement passwordField;
     @FindBy(xpath = "//input[@type='submit']") WebElement loginButton;
     @FindBy(linkText = "Sign out") WebElement logoutButton;
     @FindBy(xpath = "//div[contains(text(), 'You are logged in')]") WebElement loginMessage;
     @FindBy(xpath = "//div[contains(text(), 'Logged out successfully')]") WebElement logoutMessage;
+    @FindBy(xpath = "//div[contains(text(),'Invalid')]") WebElement invalidmessage;
 
     public String checkpageTitle() {
 		PageFactory.initElements(driver,this);
@@ -39,7 +38,11 @@ public class Login_pf {
     }
 
     public void clickLogin() {
-        loginButton.click();
+    	PageFactory.initElements(driver,this);
+    	Login.click();
+    }
+    public void clickLoginbutton() {
+    	loginButton.click();
     }
 
     public void clickLogout() {
@@ -54,6 +57,11 @@ public class Login_pf {
     public String getLogoutMessage() {
     	String logoutmsg = logoutMessage.getText();
         return logoutmsg;
+    }
+    
+    public String geterrormessage() {
+    	String errormessage = invalidmessage.getText();
+    	return errormessage;
     }
 
     /*public boolean isLoginButton() {

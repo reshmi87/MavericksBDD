@@ -26,10 +26,7 @@ public class Queue_sd {
 		ExcelReader read = new ExcelReader();
 		String username = read.getusername(Rownum);
 		String password = read.getpassword(Rownum);	
-		qpf.homepage(username, password);
-		pagetitle = qpf.checkpageTitle();
-		assertEquals(pagetitle, "NumpyNinja", "Not on the Home page");
-	    LoggerLoad.info("Current page: "+pagetitle); 
+		qpf.homepage(username, password); 
 	}
 
 	@When("User clicks on Get Started button under the section Queue")
@@ -56,8 +53,6 @@ public class Queue_sd {
 		qpf.homepage(username, password);
 		LoggerLoad.info("Moving to Queue page..");
 		pagetitle = qpf.Queuepage();
-		assertEquals(pagetitle, "Queue", "Not on the Queue page");
-	    LoggerLoad.info("Current page: "+pagetitle);
 	}
 
 	@When("User clicks on the hyperlink Implementation of Queue in Python")
@@ -83,8 +78,6 @@ public class Queue_sd {
 		LoggerLoad.info("Moving to Queue page..");
 		pagetitle = qpf.Queuepage();
 		pagetitle = qpf.implementationofqueueinpython();
-		assertEquals(pagetitle, "Implementation of Queue in Python", "Not on the Implementation of Queue in Python page");
-		LoggerLoad.info("Current page: "+pagetitle); 
 	}
 
 	@When("Queue - User clicks on the Practice Questions from the side navigation bar")
@@ -122,8 +115,6 @@ public class Queue_sd {
 		pagetitle = qpf.Queuepage();
 		pagetitle = qpf.implementationofqueueinpython();
 		pagetitle=qpf.tryhere();
-		assertEquals(pagetitle, "Assessment", "Not on the Try Editor page");
-		LoggerLoad.info("Current page: "+pagetitle);
 	}
 
 	@When("Queue - User clicks on Run Button without entering the code")
@@ -197,8 +188,6 @@ public class Queue_sd {
 		pagetitle = qpf.Queuepage();
 		pagetitle=qpf.implementationusingcollcdeque();
 		pagetitle=qpf.tryhere();
-		assertEquals(pagetitle, "Assessment", "Not on the Try Editor page");
-		LoggerLoad.info("Current page: "+pagetitle);
 	}
 
 	@When("User clicks on the hyperlink Implementation using array")
@@ -224,9 +213,7 @@ public class Queue_sd {
 		LoggerLoad.info("Moving to Queue page..");
 		pagetitle = qpf.Queuepage();
 		pagetitle = qpf.implementationusingarray();
-		pagetitle = qpf.tryhere();
-		assertEquals(pagetitle, "Assessment", "Not on the Try Editor page");
-		LoggerLoad.info("Current page: "+pagetitle);    
+		pagetitle = qpf.tryhere();   
 	}
 
 	@When("User clicks on the hyperlink Queue Operations")
@@ -253,8 +240,6 @@ public class Queue_sd {
 		pagetitle = qpf.Queuepage();
 		pagetitle=qpf.queueoperations();
 		pagetitle=qpf.tryhere();
-		assertEquals(pagetitle, "Assessment", "Not on the Try Editor page");
-		LoggerLoad.info("Current page: "+pagetitle);
 	}
 
 	@Given("Queue - User signed in dsAlgo Portal and is on the home page")

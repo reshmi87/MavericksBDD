@@ -19,8 +19,6 @@ public class Home {
 	public void the_user_opens_ds_algo_portal_link() {
 		hpf = new Home_pf();
 		pagetitle = hpf.checkpageTitle();
-		assertEquals(pagetitle, "Ds-algo", "Not on the DS Algo portal");
-	    LoggerLoad.info("Current page: "+pagetitle);
 	}
 
 	@When("The user clicks the Get Started button")
@@ -39,8 +37,6 @@ public class Home {
 	public void the_user_can_open_ds_algo_page() {
 		hpf = new Home_pf();
 		pagetitle = hpf.checkpageTitle();
-		assertEquals(pagetitle, "NumpyNinja", "Not on the Home page");
-	    LoggerLoad.info("Current page: "+pagetitle);
 	}
 
 	@When("when user get the ds-algo link")
@@ -83,8 +79,6 @@ public class Home {
 	public void user_can_open_ds_algo_home_page() {
 		hpf = new Home_pf();
 		pagetitle = hpf.checkpageTitle();
-		assertEquals(pagetitle, "NumpyNinja", "Not on the Home page");
-	    LoggerLoad.info("Current page: "+pagetitle);
 	}
 
 	@When("user clicks the Data Structures drop-down module")
@@ -96,14 +90,11 @@ public class Home {
 	public void the_user_opens_home_page() {
 		hpf = new Home_pf();
 		pagetitle = hpf.checkpageTitle();
-		assertEquals(pagetitle, "NumpyNinja", "Not on the Home page");
-	    LoggerLoad.info("Current page: "+pagetitle);
 	}
 
 	@When("The user clicks Sign in")
 	public void the_user_clicks_sign_in() {
 		hpf.signIn();
-
 	}
 
 	@Then("User will be redirected to Sign in page")

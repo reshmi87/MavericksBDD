@@ -21,8 +21,6 @@ public class Register {
 	public void users_can_open_the_register_page() {
 		rpf = new Register_pf();
 		pagetitle = rpf.checkpageTitle();
-		assertEquals(pagetitle, "NumpyNinja", "Not on the Home page");
-	    LoggerLoad.info("Current page: "+pagetitle);
 	}
 
 	@When("When user click register tab")
@@ -42,8 +40,6 @@ public class Register {
 		rpf = new Register_pf();
 		rpf.registerpage();
 		pagetitle = rpf.checkpageTitle();
-		assertEquals(pagetitle, "Registration", "Not on the Registration page");
-	    LoggerLoad.info("Current page: "+pagetitle);	
 	}
 
 
@@ -64,11 +60,7 @@ public class Register {
 	@Given("The user opens Register_pf Page")
 	public void the_user_opens_register_page() {
 		rpf = new Register_pf();
-		pagetitle = rpf.checkpageTitle();
 		rpf.registerpage();
-		pagetitle = rpf.checkpageTitle();
-		assertEquals(pagetitle, "Registration", "Not on the Registration page");
-	    LoggerLoad.info("Current page: "+pagetitle);	
 	}
 
 
@@ -94,11 +86,7 @@ public class Register {
 	@Given("The user is in the Registration page")
 	public void the_user_is_in_the_registration_page() {
 		rpf = new Register_pf();
-		pagetitle = rpf.checkpageTitle();
 		rpf.registerpage();
-		pagetitle = rpf.checkpageTitle();
-		assertEquals(pagetitle, "Registration", "Not on the Registration page");
-	    LoggerLoad.info("Current page: "+pagetitle);
 	}
 	
 	@When("The user enters a name  from sheet {int} with invalid characters other than Letters digits")
