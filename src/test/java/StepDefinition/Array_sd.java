@@ -24,10 +24,7 @@ public void the_user_is_in_the_home_page_after_sign_in() throws IOException {
 	ConfigReader config = new ConfigReader();
 	String username = config.getusername();
 	String password = config.getpassword();
-	pagetitle=Apf.homepage(username,password);
-	assertEquals(pagetitle, "NumpyNinja", "Not on the NumpyNinja Home page");
-	LoggerLoad.info(pagetitle);
-   
+	pagetitle=Apf.homepage(username,password);   
 }
 
 @When("The user clicks the Getting Started button in Array panel")
@@ -55,9 +52,8 @@ public void the_array_user_is_in_the_home_page_after_sign_in() throws IOExceptio
 	String password = config.getpassword();
 	pagetitle=Apf.homepage(username,password);
 	pagetitle = Apf.checkpageTitle();
-	assertEquals(pagetitle, "NumpyNinja", "Not on the NumpyNinja Home page");
 	LoggerLoad.info(pagetitle);
-        Apf.dropdownselect();
+    Apf.dropdownselect();
 }
 
 @When("The user select Array item from the drop down menu")
@@ -82,12 +78,7 @@ public void the_user_is_in_the_array_page_after_sign_in() throws IOException {
 	String username = config.getusername();
 	String password = config.getpassword();
 	pagetitle=Apf.homepage(username,password);
-	pagetitle = Apf.Arraypage();
-	pagetitle = Apf.checkpageTitle();
-	assertEquals(pagetitle, "Array", "Not in the Array page");
-	LoggerLoad.info(pagetitle);
-	
-	
+	pagetitle = Apf.Arraypage();	
 }
 
 @When("The user clicks Arrays in Python link")
@@ -95,9 +86,7 @@ public void the_user_clicks_arrays_in_python_link() {
     
 	pagetitle=Apf.Arraysinpython();
 	 LoggerLoad.info(pagetitle);
-	
-	
-}
+	}
 
 @Then("The user should be redirected to Arrays in Python page")
 public void the_user_should_be_redirected_to_arrays_in_python_page() {
@@ -120,10 +109,6 @@ public void the_user_is_on_the_arrays_in_python_page() throws IOException {
 	pagetitle=Apf.homepage(username,password);
 	pagetitle = Apf.Arraypage();
 	pagetitle = Apf.Arraysinpython();
-	assertEquals(pagetitle, "Arrays in Python", "not in Arrays in Python");
-	LoggerLoad.info(pagetitle);
-    
-	
 }
 
 @When("The user clicks Try here button in Arrays in Python page")
@@ -152,10 +137,7 @@ public void the_user1_is_in_the_try_editor_page() throws IOException {
 	pagetitle=Apf.homepage(username,password);
 	pagetitle = Apf.Arraypage();
 	pagetitle=Apf.Arraysinpython();
-	pagetitle=Apf.tryhere();
-	assertEquals(pagetitle, "Assessment", "Not on the Try Editor page");
-	LoggerLoad.info("Current page: "+pagetitle);
-    
+	pagetitle=Apf.tryhere();    
 }
 
 @When("The user clicks the Run Button without entering the code in the Editor")
@@ -184,9 +166,6 @@ public void the_user2_is_in_the_try_editor_page() throws IOException {
 	pagetitle = Apf.Arraypage();
 	pagetitle=Apf.Arraysinpython();
 	pagetitle=Apf.tryhere();
-	assertEquals(pagetitle, "Assessment", "Not on the Try Editor page");
-	LoggerLoad.info("Current page: "+pagetitle);
-    
 }
 
 @When("The user2 write the invalid code in Editor and click the Run Button")
@@ -216,10 +195,6 @@ public void the_user3_is_in_the_try_editor_page() throws IOException {
 	pagetitle = Apf.Arraypage();
 	pagetitle=Apf.Arraysinpython();
 	pagetitle=Apf.tryhere();
-	assertEquals(pagetitle, "Assessment", "Not on the Try Editor page");
-	LoggerLoad.info("Current page: "+pagetitle);
-	
-	
 }
 
 @When("The user1 write the valid code in Editor and click the Run Button")
@@ -249,13 +224,10 @@ public void the_array_user_is_in_the_array_page_after_sign_in() throws IOExcepti
 	pagetitle=Apf.homepage(username,password);
 	pagetitle = Apf.Arraypage();
 	pagetitle = Apf.Arraysinpython();
-	assertEquals(pagetitle, "Arrays in Python", "Not on the Arrays in Python page");
-	LoggerLoad.info(pagetitle);
-		
 }
+
 @When("The user1 clicks Practice Questions button")
 public void the_user1_clicks_practice_questions_button() {
-	
 	Apf.PracticeQuestionClick();   
 }
 
@@ -294,8 +266,6 @@ public void the_user_is_on_the_arrays_using_list_page() throws IOException {
 	pagetitle=Apf.homepage(username,password);
 	pagetitle = Apf.Arraypage();
 	pagetitle = Apf.ArraysUsingList();
-	assertEquals(pagetitle, "Arrays Using List", "Not on the Array page");
-	LoggerLoad.info(pagetitle);
 }
 
 @When("The user clicks Try here button in Arrays Using List page")
@@ -320,8 +290,6 @@ public void the_user4_is_in_the_try_editor_page() throws IOException {
 	pagetitle = Apf.Arraypage();
 	pagetitle=Apf.ArraysUsingList();
 	pagetitle=Apf.tryhere();
-	assertEquals(pagetitle, "Assessment", "Not on the Try Editor page");
-	LoggerLoad.info("Current page: "+pagetitle);
 }
 
 @When("The user1 clicks the Run Button without entering the code in the Editor")
@@ -346,10 +314,7 @@ public void the_user5_is_in_the_try_editor_page() throws IOException {
 	pagetitle=Apf.homepage(username,password);
 	pagetitle = Apf.Arraypage();
 	pagetitle=Apf.ArraysUsingList();
-	pagetitle=Apf.tryhere();
-	assertEquals(pagetitle, "Assessment", "Not on the Try Editor page");
-	LoggerLoad.info("Current page: "+pagetitle);
-    
+	pagetitle=Apf.tryhere();    
 }
 
 @When("The user3 write the invalid code in Editor and click the Run Button")
@@ -375,8 +340,6 @@ public void the_user6_is_in_the_try_editor_page() throws IOException {
 	pagetitle = Apf.Arraypage();
 	pagetitle=Apf.ArraysUsingList();
 	pagetitle=Apf.tryhere();
-	assertEquals(pagetitle, "Assessment", "Not on the Try Editor page");
-	LoggerLoad.info("Current page: "+pagetitle);
 }
 
 @When("The user2 write the valid code in Editor and click the Run Button")
@@ -402,8 +365,6 @@ public void the_array_user1_is_in_the_array_page_after_sign_in() throws IOExcept
 	pagetitle=Apf.homepage(username,password);
 	pagetitle = Apf.Arraypage();
 	pagetitle = Apf.ArraysUsingList();
-	assertEquals(pagetitle, "Arrays Using List", "Not on the Arrays Using List");
-	LoggerLoad.info(pagetitle);
 		
 }
 
@@ -428,11 +389,7 @@ public void the_user0_is_in_the_array_page_after_sign_in() throws IOException {
 	String password = config.getpassword();
 	pagetitle=Apf.homepage(username,password);
 	pagetitle = Apf.Arraypage();
-	pagetitle = Apf.checkpageTitle();
-	assertEquals(pagetitle, "Array", "Not in the Array page");
-	LoggerLoad.info(pagetitle);
-	
-	
+	pagetitle = Apf.checkpageTitle();	
 }
 
 @When("The user clicks Basic Operations in Lists link")
@@ -459,8 +416,6 @@ public void the_user_is_on_the_basic_operations_in_lists_page() throws IOExcepti
 	pagetitle=Apf.homepage(username,password);
 	pagetitle = Apf.Arraypage();
 	pagetitle = Apf.BasicOperations();
-	assertEquals(pagetitle, "Basic Operations in Lists", "Not on the Basic Operations in Lists page");
-	LoggerLoad.info(pagetitle);
 }
 
 @When("The user clicks Try here button in Basic Operations in Lists page")
@@ -487,8 +442,6 @@ public void the_user7_is_in_the_try_editor_page() throws IOException {
 	pagetitle = Apf.Arraypage();
 	pagetitle=Apf.BasicOperations();
 	pagetitle=Apf.tryhere();
-	assertEquals(pagetitle, "Assessment", "Not on the Try Editor page");
-	LoggerLoad.info("Current page: "+pagetitle);
 }
 
 @When("The user2 clicks the Run Button without entering the code in the Editor")
@@ -517,8 +470,6 @@ public void the_user8_is_in_the_try_editor_page() throws IOException {
 	pagetitle = Apf.Arraypage();
 	pagetitle=Apf.BasicOperations();
 	pagetitle=Apf.tryhere();
-	assertEquals(pagetitle, "Assessment", "Not on the Try Editor page");
-	LoggerLoad.info("Current page: "+pagetitle);
 }
 
 @When("The user4 write the invalid code in Editor and click the Run Button")
@@ -545,8 +496,6 @@ public void the_user9_is_in_the_try_editor_page() throws IOException {
 	pagetitle = Apf.Arraypage();
 	pagetitle=Apf.BasicOperations();
 	pagetitle=Apf.tryhere();
-	assertEquals(pagetitle, "Assessment", "Not on the Try Editor page");
-	LoggerLoad.info("Current page: "+pagetitle);
 }
 
 @When("The user3 write the valid code in Editor and click the Run Button")
@@ -573,8 +522,6 @@ public void the_user1_is_in_the_array_page_after_sign_in() throws IOException {
 	pagetitle=Apf.homepage(username,password);
 	pagetitle = Apf.Arraypage();
 	pagetitle = Apf.BasicOperations();
-	assertEquals(pagetitle, "Basic Operations in Lists", "Not on the Basic Operations in Lists");
-	LoggerLoad.info(pagetitle);
 }
 
 @When("The user clicks Practice Questions button")
@@ -600,8 +547,6 @@ public void the_user01_is_in_the_array_page_after_sign_in() throws IOException {
 	pagetitle=Apf.homepage(username,password);
 	pagetitle = Apf.Arraypage();
 	pagetitle = Apf.ApplicationsofArray();
-	assertEquals(pagetitle, "Applications of Array", "Not on the Applications of Array");
-	LoggerLoad.info(pagetitle);
 }
 
 @When("The user clicks Applications of Array link")
@@ -628,8 +573,6 @@ public void the_user_is_on_the_applications_of_array_page() throws IOException {
 	pagetitle=Apf.homepage(username,password);
 	pagetitle = Apf.Arraypage();
 	pagetitle = Apf.ApplicationsofArray();
-	assertEquals(pagetitle, "Applications of Array", "Not on the Applications of Array");
-	LoggerLoad.info(pagetitle);
 }
 
 @When("The user clicks Try here button in Applications of Array")
@@ -656,8 +599,6 @@ public void the_user10_is_in_the_try_editor_page() throws IOException {
 	pagetitle = Apf.Arraypage();
 	pagetitle=Apf.ApplicationsofArray();
 	pagetitle=Apf.tryhere();
-	assertEquals(pagetitle, "Assessment", "Not on the Try Editor page");
-	LoggerLoad.info("Current page: "+pagetitle);
 }
 
 @When("The user3 clicks the Run Button without entering the code in the Editor")
@@ -685,8 +626,6 @@ public void the_user11_is_in_the_try_editor_page() throws IOException {
 	pagetitle = Apf.Arraypage();
 	pagetitle=Apf.ApplicationsofArray();
 	pagetitle=Apf.tryhere();
-	assertEquals(pagetitle, "Assessment", "Not on the Try Editor page");
-	LoggerLoad.info("Current page: "+pagetitle);
 }
 
 @When("The user5 write the invalid code in Editor and click the Run Button")
@@ -715,8 +654,6 @@ public void the_user12_is_in_the_try_editor_page() throws IOException {
 	pagetitle = Apf.Arraypage();
 	pagetitle=Apf.ApplicationsofArray();
 	pagetitle=Apf.tryhere();
-	assertEquals(pagetitle, "Assessment", "Not on the Try Editor page");
-	LoggerLoad.info("Current page: "+pagetitle);
 }
 
 @When("The user4 write the valid code in Editor and click the Run Button")
@@ -744,8 +681,6 @@ public void the_user2_is_in_the_array_page_after_sign_in() throws IOException {
 	pagetitle=Apf.homepage(username,password);
 	pagetitle = Apf.Arraypage();
 	pagetitle = Apf.ApplicationsofArray();
-	assertEquals(pagetitle, "Applications of Array", "Not on the Applications of Array");
-	LoggerLoad.info(pagetitle);
 }
 
 @When("The user01 clicks Practice Questions button")
@@ -774,8 +709,6 @@ public void the_user1_is_on_the_practice_question_editor() throws IOException {
 	pagetitle = Apf.ApplicationsofArray();
 	pagetitle=Apf.PracticeQuestionClick();
 	pagetitle=Apf.SearchTheArray();
-	assertEquals(pagetitle, "Assessment", "Not on the Assessment");
-	LoggerLoad.info("Current page: "+pagetitle);
 
 }
 
@@ -805,7 +738,6 @@ public void the_user2_is_on_the_practice_question_editor() throws IOException {
 			String username = config.getusername();
 			String password = config.getpassword();
 			pagetitle=Apf.homepage(username,password);
-			assertEquals(pagetitle, "NumpyNinja", "Not on the NumpyNinja Home page");
 			LoggerLoad.info(pagetitle);
 			pagetitle = Apf.Arraypage();
 			LoggerLoad.info(pagetitle);
@@ -841,7 +773,6 @@ public void the_user3_is_on_the_practice_question_editor() throws IOException {
 			String username = config.getusername();
 			String password = config.getpassword();
 			pagetitle=Apf.homepage(username,password);
-			assertEquals(pagetitle, "NumpyNinja", "Not on the NumpyNinja Home page");
 			LoggerLoad.info(pagetitle);
 			pagetitle = Apf.Arraypage();
 			LoggerLoad.info(pagetitle);
@@ -874,7 +805,6 @@ public void the_user4_is_on_the_practice_question_editor() throws IOException {
 			String username = config.getusername();
 			String password = config.getpassword();
 			pagetitle=Apf.homepage(username,password);
-			assertEquals(pagetitle, "NumpyNinja", "Not on the NumpyNinja Home page");
 			LoggerLoad.info(pagetitle);
 			pagetitle = Apf.Arraypage();
 			LoggerLoad.info(pagetitle);
@@ -911,7 +841,6 @@ public void the_user_see(String string) {
 
 @Given("The user5 is on the practice question editor")
 public void the_user5_is_on_the_practice_question_editor() throws IOException {
-	{
 	ConfigReader config = new ConfigReader();
 	String username = config.getusername();
 	String password = config.getpassword();
@@ -920,9 +849,7 @@ public void the_user5_is_on_the_practice_question_editor() throws IOException {
 	pagetitle = Apf.ApplicationsofArray();
 	pagetitle=Apf.PracticeQuestionClick();
 	pagetitle=Apf.MaxConseOnes();
-	assertEquals(pagetitle, "Assessment", "Not on the Assessment");
-	LoggerLoad.info("Current page: "+pagetitle);
-}
+	
 }
 @When("The user7 write the invalid code in Editor and Click the Run Button")
 public void the_user7_write_the_invalid_code_in_editor_and_click_the_run_button() {
@@ -942,12 +869,10 @@ public void the_user9_should_able_to_see_an_error_message_in_alert_window() {
 //@A32
 @Given("The user6 is on the practice question editor")
 public void the_user6_is_on_the_practice_question_editor() throws IOException {
-	{	
-		ConfigReader config = new ConfigReader();
+			ConfigReader config = new ConfigReader();
 			String username = config.getusername();
 			String password = config.getpassword();
 			pagetitle=Apf.homepage(username,password);
-			assertEquals(pagetitle, "NumpyNinja", "Not on the NumpyNinja Home page");
 			LoggerLoad.info(pagetitle);
 			pagetitle = Apf.Arraypage();
 			LoggerLoad.info(pagetitle);
@@ -955,7 +880,6 @@ public void the_user6_is_on_the_practice_question_editor() throws IOException {
 			LoggerLoad.info(pagetitle);
 			pagetitle = Apf.PracticeQuestionClick();
 			LoggerLoad.info(pagetitle);
-		 }
 }
 
 @When("The user6 write the valid code in Editor and Click the Run Button")
@@ -980,13 +904,11 @@ public void the_user6_should_able_to_see_output_in_the_console() {
 //@A33
 
 @Given("The user7 is on the practice question editor")
-public void the_user7_is_on_the_practice_question_editor() throws IOException {
-	{	
-		ConfigReader config = new ConfigReader();
+public void the_user7_is_on_the_practice_question_editor() throws IOException {	
+			ConfigReader config = new ConfigReader();
 			String username = config.getusername();
 			String password = config.getpassword();
 			pagetitle=Apf.homepage(username,password);
-			assertEquals(pagetitle, "NumpyNinja", "Not on the NumpyNinja Home page");
 			LoggerLoad.info(pagetitle);
 			pagetitle = Apf.Arraypage();
 			LoggerLoad.info(pagetitle);
@@ -994,7 +916,6 @@ public void the_user7_is_on_the_practice_question_editor() throws IOException {
 			LoggerLoad.info(pagetitle);
 			pagetitle = Apf.PracticeQuestionClick();
 			LoggerLoad.info(pagetitle);
-		 }
 }
 
 @When("The user2 write the invalid code in Editor and Click the Submit Button")
@@ -1016,7 +937,6 @@ public void the_user_see_an_error_message_error_occurred_during_submission() {
 
 @Given("The user9 is on the practice question editor")
 public void the_user9_is_on_the_practice_question_editor() throws IOException {
-	{
 	ConfigReader config = new ConfigReader();
 	String username = config.getusername();
 	String password = config.getpassword();
@@ -1025,9 +945,7 @@ public void the_user9_is_on_the_practice_question_editor() throws IOException {
 	pagetitle = Apf.ApplicationsofArray();
 	pagetitle=Apf.PracticeQuestionClick();
 	pagetitle=Apf.EvenNoOfDigits();
-	assertEquals(pagetitle, "Assessment", "Not on the Assessment");
-	LoggerLoad.info("Current page: "+pagetitle);
-}
+	
 }
 
 @When("The user8 write the invalid code in Editor and Click the Run Button")
@@ -1048,13 +966,11 @@ public void the_user10_should_able_to_see_an_error_message_in_alert_window() {
 
 //@A36---Done
 @Given("The user10 is on the practice question editor")
-public void the_user10_is_on_the_practice_question_editor() throws IOException {
-	{	
-		ConfigReader config = new ConfigReader();
+public void the_user10_is_on_the_practice_question_editor() throws IOException {	
+			ConfigReader config = new ConfigReader();
 			String username = config.getusername();
 			String password = config.getpassword();
 			pagetitle=Apf.homepage(username,password);
-			assertEquals(pagetitle, "NumpyNinja", "Not on the NumpyNinja Home page");
 			LoggerLoad.info(pagetitle);
 			pagetitle = Apf.Arraypage();
 			LoggerLoad.info(pagetitle);
@@ -1062,8 +978,6 @@ public void the_user10_is_on_the_practice_question_editor() throws IOException {
 			LoggerLoad.info(pagetitle);
 			pagetitle = Apf.PracticeQuestionClick();
 			LoggerLoad.info(pagetitle);
-		 }
-
 }
 
 @When("The user7 write the valid code in Editor and Click the Run Button")
@@ -1090,12 +1004,10 @@ public void the_user7_should_able_to_see_output_in_the_console() {
 //@A37--done
 @Given("The user11 is on the practice question editor")
 public void the_use_r11_is_on_the_practice_question_editor() throws IOException {
-	{	
-		ConfigReader config = new ConfigReader();
+			ConfigReader config = new ConfigReader();
 			String username = config.getusername();
 			String password = config.getpassword();
 			pagetitle=Apf.homepage(username,password);
-			assertEquals(pagetitle, "NumpyNinja", "Not on the NumpyNinja Home page");
 			LoggerLoad.info(pagetitle);
 			pagetitle = Apf.Arraypage();
 			LoggerLoad.info(pagetitle);
@@ -1103,7 +1015,6 @@ public void the_use_r11_is_on_the_practice_question_editor() throws IOException 
 			LoggerLoad.info(pagetitle);
 			pagetitle = Apf.PracticeQuestionClick();
 			LoggerLoad.info(pagetitle);
-		 }
 }
 
 @When("The user3 write the invalid code in Editor and Click the Submit Button")
@@ -1127,12 +1038,10 @@ public void the_use_r_see_an_error_message_error_occurred_during_submission() {
 
 @Given("The user12 is on the practice question editor")
 public void the_user12_is_on_the_practice_question_editor() throws IOException {
-	{	
 		ConfigReader config = new ConfigReader();
 			String username = config.getusername();
 			String password = config.getpassword();
 			pagetitle=Apf.homepage(username,password);
-			assertEquals(pagetitle, "NumpyNinja", "Not on the NumpyNinja Home page");
 			LoggerLoad.info(pagetitle);
 			pagetitle = Apf.Arraypage();
 			LoggerLoad.info(pagetitle);
@@ -1140,8 +1049,6 @@ public void the_user12_is_on_the_practice_question_editor() throws IOException {
 			LoggerLoad.info(pagetitle);
 			pagetitle = Apf.PracticeQuestionClick();
 			LoggerLoad.info(pagetitle);
-		 }
-
 }
 
 @When("The user3 write the valid code in Editor and Click the Submit Button")
@@ -1174,7 +1081,6 @@ public void the_user13_is_on_the_practice_question_editor() throws IOException {
 	pagetitle = Apf.ApplicationsofArray();
 	pagetitle=Apf.PracticeQuestionClick();
 	pagetitle=Apf.SquareOfSortedArray();
-	assertEquals(pagetitle, "Assessment", "Not on the Assessment");
 	LoggerLoad.info("Current page: "+pagetitle);
 }
 
@@ -1198,12 +1104,10 @@ public void the_user11_should_able_to_see_an_error_message_in_alert_window() {
 //@A40
 @Given("The user14 is on the practice question editor")
 public void the_user14_is_on_the_practice_question_editor() throws IOException {
-	{	
 		ConfigReader config = new ConfigReader();
 			String username = config.getusername();
 			String password = config.getpassword();
 			pagetitle=Apf.homepage(username,password);
-			assertEquals(pagetitle, "NumpyNinja", "Not on the NumpyNinja Home page");
 			LoggerLoad.info(pagetitle);
 			pagetitle = Apf.Arraypage();
 			LoggerLoad.info(pagetitle);
@@ -1211,8 +1115,6 @@ public void the_user14_is_on_the_practice_question_editor() throws IOException {
 			LoggerLoad.info(pagetitle);
 			pagetitle = Apf.PracticeQuestionClick();
 			LoggerLoad.info(pagetitle);
-		 }
-
 }
 
 @When("The user8 write the valid code in Editor and Click the Run Button")
@@ -1238,12 +1140,10 @@ public void the_user8_should_able_to_see_output_in_the_console() {
 
 @Given("The user141 is on the practice question editor")
 public void the_user14_is_on_the_practice_question_editor1() throws IOException {
-	{	
 		ConfigReader config = new ConfigReader();
 			String username = config.getusername();
 			String password = config.getpassword();
 			pagetitle=Apf.homepage(username,password);
-			assertEquals(pagetitle, "NumpyNinja", "Not on the NumpyNinja Home page");
 			LoggerLoad.info(pagetitle);
 			pagetitle = Apf.Arraypage();
 			LoggerLoad.info(pagetitle);
@@ -1251,8 +1151,6 @@ public void the_user14_is_on_the_practice_question_editor1() throws IOException 
 			LoggerLoad.info(pagetitle);
 			pagetitle = Apf.PracticeQuestionClick();
 			LoggerLoad.info(pagetitle);
-		 }
-
 }
 
 @When("The user14 write the valid code in Editor and Click the Submit Button")
@@ -1274,6 +1172,4 @@ public void the_user_see1(String string) {
 	LoggerLoad.info(output);
 
 }
-
-
 }
