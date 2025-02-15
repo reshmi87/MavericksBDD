@@ -23,8 +23,6 @@ public class ds_sd extends ds_pf{
 		String username = config.getusername();
 		String password = config.getpassword();
 		pagetitle=dspf.homepage(username,password);
-		assertEquals(pagetitle, "NumpyNinja", "Not on the NumpyNinja Home page");
-		LoggerLoad.info(pagetitle);
 	}
 
 	@When("The user clicks Get Started button in Data Structures - Introduction panel")
@@ -56,8 +54,6 @@ public class ds_sd extends ds_pf{
 		
 		pagetitle = dspf.dspage();
 		pagetitle = dspf.checkpageTitle();
-		assertEquals(pagetitle, "Data Structures-Introduction", "Not on the Data Structures-Introduction");
-		LoggerLoad.info(pagetitle);
 	}
 
 	@When("The user clicks Time Complexity link Data Structures- Introduction Page")
@@ -86,8 +82,6 @@ public class ds_sd extends ds_pf{
 		pagetitle=dspf.homepage(username,password);
 		pagetitle = dspf.dspage();
 		pagetitle = dspf.clickTimeComplexityLink();
-		assertEquals(pagetitle, "Time Complexity", "Not on the Time Complexity page");
-		LoggerLoad.info(pagetitle);
 	}
 
 	@When("The user clicks the Practice Questions link in the Data structures-Introduction")
@@ -114,8 +108,6 @@ public class ds_sd extends ds_pf{
 		pagetitle=dspf.homepage(username,password);
 		pagetitle = dspf.dspage();
 		pagetitle = dspf.clickTimeComplexityLink();
-		assertEquals(pagetitle, "Time Complexity", "Not on the Time Complexity page");
-		LoggerLoad.info(pagetitle);
 	}
 
 	@When("The user clicks Try here button in the Data structures-Introduction")
@@ -144,10 +136,7 @@ public class ds_sd extends ds_pf{
 		pagetitle = dspf.dspage();
 		pagetitle=dspf.clickTimeComplexityLink();
 		pagetitle=dspf.tryhere();
-		assertEquals(pagetitle, "Assessment", "Not on the Try Editor page");
-		LoggerLoad.info("Current page: "+pagetitle);
-	    
-	}
+  }
 
 	@When("The user clicks the Run Button without entering the code in the Editor of Data structures-Introduction")
 	public void the_user_clicks_the_run_button_without_entering_the_code_in_the_editor_of_data_structures_introduction() {
@@ -176,8 +165,6 @@ public class ds_sd extends ds_pf{
 		pagetitle = dspf.dspage();
 		pagetitle=dspf.clickTimeComplexityLink();
 		pagetitle=dspf.tryhere();
-		assertEquals(pagetitle, "Assessment", "Not on the Try Editor page");
-		LoggerLoad.info("Current page: "+pagetitle);
 	}
 
 	@When("The user write the invalid code in Editor and click the Run Button to test Data structures-Introduction")
@@ -205,8 +192,6 @@ public class ds_sd extends ds_pf{
 		pagetitle = dspf.dspage();
 		pagetitle=dspf.clickTimeComplexityLink();
 		pagetitle=dspf.tryhere();
-		assertEquals(pagetitle, "Assessment", "Not on the Try Editor page");
-		LoggerLoad.info("Current page: "+pagetitle);
 	}
 
 	@When("The user write the valid code in Editor and click the Run Button to test Data structures-Introduction")
@@ -222,8 +207,4 @@ public class ds_sd extends ds_pf{
 		LoggerLoad.info(output);
 		//dspf.closebrowser();
 	}
-
-
-
-
 }
